@@ -10,32 +10,90 @@
 </head>
 
 <body>
-    <nav class="navBarContainer">
-        <ul>
-            <img src="./img/logo.png">
+    <section class="navBarContainer" id="navBarContainer">
 
-            <li>
-                Board
-            </li>
-            <li>
-                Backlog
-            </li>
-            <li>
-                Add Task
-            </li>
-            <li>
-                Help
-            </li>
+        <nav class="navBar" id="navBar">
 
-        </ul>
+            <ul>
+                <img src="./img/logo.png">
+                <li>
+                    Board
+                </li>
+                <li>
+                    Backlog
+                </li>
+                <li>
+                    Add Task
+                </li>
+                <li>
+                    Help
+                </li>
+            </ul>
 
-        <div>
-            <!-- In a real application, the user should log-in the app, and this should be the pic of her/his avatar -->
-            <img class="avatarPic" src="./img/avatar.jpg">
+            <div>
+                <!-- In a real application, the user should log-in the app, and this should be the pic of her/his avatar -->
+                <img class="avatarPic" id="avatarPic" src="./img/avatar.jpg">
+            </div>
+
+        </nav>
+
+    </section>
+
+    <section class="addTaskPage" id="addTaskPage">
+
+        <head>
+            <h1 class="addTaskHead" id="addTaskHead">Add Task</h1>
+            <h2>Learning Management System Project</h2>
+        </head>
+
+        <div class="taskCreatorContainer" id="taskCreatorContainer">
+            <div class="taskCreator" id="taskCreator">
+                <div class="taskCreatorColumn" id="taskCreatorColumn">
+                    <div>
+                        <p class="parametersName" id="parametersName">
+                            Title
+                        </p>
+                        <input type="text" class="titleInput" id="titleInput">
+                    </div>
+                    <div>
+                        <p class="parametersName" id="parametersName">
+                            Category
+                        </p>
+                        <select class="categorySelector" id="categorySelector">
+                            <option> Select a category: </option>
+                            <option> Management </option>
+                            <option> Daily Report </option>
+                            <option> Trainning </option>
+                        </select>
+                    </div>
+                    <div>
+                        <p class="parametersName" id="parametersName">
+                            Description
+                        </p>
+                        <textarea type="text" class="taskDescription" maxlength="165"></textarea>
+                    </div>
+                </div>
+
+                <!-- temporarily -->
+                <div class="taskCreatorColumn">
+                    <div>
+                        <p class="parametersName">
+                            Title
+                        </p>
+                        <input type="text" class="titleInput">
+                    </div>
+                    <div>
+                        <p class="parametersName">
+                            Category
+                        </p>
+                        <input>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-
-    </nav>
+    </section>
 
 </body>
 
