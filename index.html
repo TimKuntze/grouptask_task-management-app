@@ -48,7 +48,7 @@
 
         <div class="taskCreatorContainer" id="taskCreatorContainer">
             <div class="taskCreator" id="taskCreator">
-                <div class="taskCreatorColumn" id="taskCreatorColumn">
+                <div class="taskCreatorColumn" id="taskCreatorColumn1">
                     <div>
                         <p class="parametersName" id="parametersName">
                             Title
@@ -74,19 +74,50 @@
                     </div>
                 </div>
 
-                <!-- temporarily -->
-                <div class="taskCreatorColumn">
+                <div class="taskCreatorColumn" id="taskCreatorColumn2">
                     <div>
                         <p class="parametersName">
-                            Title
+                            Due Date
                         </p>
-                        <input type="text" class="titleInput">
+                        <input type="date" class="dateInput">
                     </div>
                     <div>
                         <p class="parametersName">
-                            Category
+                            Urgency
                         </p>
-                        <input>
+                        <select class="categorySelector" id="categorySelector">
+                            <option> Select the urgency: </option>
+                            <option> Low </option>
+                            <option> Medium </option>
+                            <option> High </option>
+                        </select>
+                    </div>
+                    <div>
+                        <p class="parametersName">
+                            Assigned to
+                        </p>
+
+                        <div class="assignedToArea">
+
+                            <div class="avatarPicsArea">
+                                <div>
+                                    <img class="avatarAssigned" id="avatarPic" src="./img/avatarAtila.jpg">
+                                </div>
+                                <div>
+                                    <img class="avatarPlusBtn" id="avatarPic" src="./img/icon plus.png">
+                                </div>
+                            </div>
+
+                            <div class="btns">
+                                <div class="cancelBtn">
+                                    cancel
+                                </div>
+                                <div class="createTaskBtn">
+                                    Create Task
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 

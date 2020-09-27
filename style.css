@@ -124,10 +124,6 @@ ul {
     width: calc(100% - 16px);
 }
 
-.categorySelector {
-    appearance: none;
-}
-
 .taskDescription {
     font-family: 'PT Sans', sans-serif;
     resize: none;
@@ -139,4 +135,91 @@ ul {
     border-width: 2px;
     padding-left: 10px;
     padding-top: 10px;
+}
+
+.dateInput {
+    font-family: 'PT Sans', sans-serif;
+    height: 35px;
+    width: calc(100% - 16px);
+    min-width: 154px;
+    font-size: 18px;
+    border-radius: 4px;
+    border-color: rgb(225, 225, 225);
+    border-style: solid;
+    outline: none;
+    padding-left: 10px;
+}
+
+.assignedToArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 145px;
+}
+
+.assignedToArea img {
+    margin: 0px;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.createTaskBtn {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(32, 48, 143);
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.createTaskBtn:hover {
+    background-color: rgb(46, 69, 201);
+    cursor: pointer;
+}
+
+.cancelBtn {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.cancelBtn:hover {
+    color: rgb(46, 69, 201);
+    cursor: pointer;
+}
+
+.avatarPlusBtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 0px !important;
+    margin-left: 20px !important;
+}
+
+.avatarPlusBtn:hover {
+    cursor: pointer;
+}
+
+.avatarPicsArea {
+    display: flex;
+    align-items: center;
+}
+
+.avatarAssigned {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 0px !important;
+    margin: 28px;
+    cursor: pointer;
 }
