@@ -44,25 +44,47 @@
     <section class="dashboardPage" id="dashboard">
 
         <head>
-            <h1 class="dashboardHead" id="dashboardHead">Task Dashboard</h1>
+            <h1 class="dashboardHead" id="dashboardHead">Dashboard</h1>
         </head>
 
         <div class="dashboardContainer" id="dashboardContainer ">
 
             <div class="dashboardColumn">
-                <h2>TO DO </h2>
+                <p class="dashboardHeader">TO DO </p>
+                <div class="todoTasks allTasks" id="todoTasks">
+                    <div class="taskCategory" id="taskCategory">Category</div>
+                    <div class="taskTitle" id="taskTitle">Title</div>
+
+
+                </div>
             </div>
 
             <div class="dashboardColumn">
-                <h2>IN PROGRESS</h2>
+                <p class="dashboardHeader">IN PROGRESS</p>
+                <div class="inprogressTasks allTasks" id="inprogressTasks">
+                    <ul>
+                        <li>
+                            <div class="taskCategory" id="taskCategory">Category</div>
+                            <div class="taskTitle" id="taskTitle">Title</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="dashboardColumn">
-                <h2>TESTING</h2>
+                <p class="dashboardHeader">TESTING</p>
+                <div class="testingTasks allTasks" id="testingTasks">
+                    <div class="taskCategory" id="taskCategory">Category</div>
+                    <div class="taskTitle" id="taskTitle">Title</div>
+                </div>
             </div>
 
             <div class="dashboardColumn">
-                <h2>DONE</h2>
+                <p class="dashboardHeader">DONE</p>
+                <div class="doneTasks allTasks" id="doneTasks">
+                    <div class="taskCategory" id="taskCategory">Category</div>
+                    <div class="taskTitle" id="taskTitle">Title</div>
+                </div>
             </div>
 
         </div>

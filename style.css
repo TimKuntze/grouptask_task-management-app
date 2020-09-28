@@ -246,9 +246,55 @@ ul {
     background-color: rgb(244, 243, 251);
     width: 25%;
     height: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboardHeader {
+    text-transform: uppercase;
+    color: rgb(30, 49, 144);
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 36px;
 }
 
 .dashboardPage {
     font-family: 'PT Sans', sans-serif;
     width: 100%;
+}
+
+.allTasks {
+    border: 1px white solid;
+    border-radius: 10px;
+    text-align: left !important;
+    width: 85%;
+    height: 40px;
+    padding: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.taskCategory {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.todoTasks {
+    background-color: rgb(241, 206, 206);
+}
+
+.inprogressTasks {
+    background-color: rgb(240, 215, 195);
+}
+
+.testingTasks {
+    background-color: rgb(236, 236, 212);
+}
+
+.doneTasks {
+    background-color: rgb(204, 236, 195);
 }
