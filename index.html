@@ -7,9 +7,10 @@
     <title>Task Management App</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
 </head>
 
-<body>
+<body onload="setTodaysDate()">
     <section class="navBarContainer" id="navBarContainer">
 
         <nav class="navBar" id="navBar">
@@ -48,48 +49,48 @@
 
         <div class="taskCreatorContainer" id="taskCreatorContainer">
             <div class="taskCreator" id="taskCreator">
-                <div class="taskCreatorColumn" id="taskCreatorColumn1">
+                <div class="taskCreatorColumn">
                     <div>
-                        <p class="parametersName" id="parametersName">
+                        <p class="parametersName">
                             Title
                         </p>
                         <input type="text" class="titleInput" id="titleInput">
                     </div>
                     <div>
-                        <p class="parametersName" id="parametersName">
+                        <p class="parametersName">
                             Category
                         </p>
                         <select class="categorySelector" id="categorySelector">
-                            <option> Select a category: </option>
-                            <option> Management </option>
-                            <option> Daily Report </option>
-                            <option> Trainning </option>
+                            <option>Select a category:</option>
+                            <option>Management</option>
+                            <option>Daily Report</option>
+                            <option>Trainning</option>
                         </select>
                     </div>
                     <div>
-                        <p class="parametersName" id="parametersName">
+                        <p class="parametersName">
                             Description
                         </p>
-                        <textarea type="text" class="taskDescription" maxlength="165"></textarea>
+                        <textarea type="text" class="taskDescription" id="taskDescription" maxlength="165"></textarea>
                     </div>
                 </div>
 
-                <div class="taskCreatorColumn" id="taskCreatorColumn2">
+                <div class="taskCreatorColumn">
                     <div>
                         <p class="parametersName">
                             Due Date
                         </p>
-                        <input type="date" class="dateInput">
+                        <input type="date" class="dateInput" id="dateInput">
                     </div>
                     <div>
                         <p class="parametersName">
                             Urgency
                         </p>
-                        <select class="categorySelector" id="categorySelector">
-                            <option> Select the urgency: </option>
-                            <option> Low </option>
-                            <option> Medium </option>
-                            <option> High </option>
+                        <select class="categorySelector" id="urgencySelector">
+                            <option>Select the urgency:</option>
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>High</option>
                         </select>
                     </div>
                     <div>
@@ -110,10 +111,10 @@
 
                             <div class="btns">
                                 <div class="cancelBtn">
-                                    cancel
+                                    <p>cancel</p>
                                 </div>
-                                <div class="createTaskBtn">
-                                    Create Task
+                                <div class="createTaskBtn" onclick="createTaskJSON()">
+                                    <p>Create Task</p>
                                 </div>
                             </div>
 

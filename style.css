@@ -179,6 +179,11 @@ ul {
     border-radius: 8px;
 }
 
+.createTaskBtn p {
+    margin: 0px;
+    white-space: nowrap;
+}
+
 .createTaskBtn:hover {
     background-color: rgb(46, 69, 201);
     cursor: pointer;
