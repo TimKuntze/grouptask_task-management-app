@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App</title>
+    <link rel="stylesheet" href="styleAddTask.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+
+<body onload="setTodaysDate()">
+    <section class="navBarContainer" id="navBarContainer">
+
+        <nav class="navBar" id="navBar">
+
+            <ul>
+                <img src="./img/logo.png">
+                <li>
+                    Board
+                </li>
+                <li>
+                    Backlog
+                </li>
+                <li>
+                    Add Task
+                </li>
+                <li>
+                    Help
+                </li>
+            </ul>
+
+            <div>
+                <!-- In a real application, the user should log-in the app, and this should be the pic of her/his avatar -->
+                <img class="avatarPic" id="avatarPic" src="./img/avatar.jpg">
+            </div>
+
+        </nav>
+
+    </section>
+
+    <section class="addTaskPage" id="addTaskPage">
+
+        <head>
+            <h1 class="addTaskHead" id="addTaskHead">Add Task</h1>
+            <h2>Learning Management System Project</h2>
+        </head>
+
+        <div class="taskCreatorContainer" id="taskCreatorContainer">
+            <div class="taskCreator" id="taskCreator">
+                <div class="taskCreatorColumn">
+                    <div>
+                        <p class="parametersName">
+                            Title
+                        </p>
+                        <input type="text" class="titleInput" id="titleInput">
+                    </div>
+                    <div>
+                        <p class="parametersName">
+                            Category
+                        </p>
+                        <select class="categorySelector" id="categorySelector">
+                            <option>Select a category:</option>
+                            <option>Management</option>
+                            <option>Daily Report</option>
+                            <option>Trainning</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p class="parametersName">
+                            Description
+                        </p>
+                        <textarea type="text" class="taskDescription" id="taskDescription" maxlength="165"></textarea>
+                    </div>
+                </div>
+
+                <div class="taskCreatorColumn">
+                    <div>
+                        <p class="parametersName">
+                            Due Date
+                        </p>
+                        <input type="date" class="dateInput" id="dateInput">
+                    </div>
+                    <div>
+                        <p class="parametersName">
+                            Urgency
+                        </p>
+                        <select class="categorySelector" id="urgencySelector">
+                            <option>Select the urgency:</option>
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>High</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p class="parametersName">
+                            Assigned to
+                        </p>
+
+                        <div class="assignedToArea">
+
+                            <div class="avatarPicsArea">
+                                <div>
+                                    <img class="avatarAssigned" id="avatarPic" src="./img/avatarAtila.jpg">
+                                </div>
+                                <div>
+                                    <img class="avatarPlusBtn" id="avatarPic" src="./img/icon plus.png">
+                                </div>
+                            </div>
+
+                            <div class="btns">
+                                <div class="cancelBtn">
+                                    <p>cancel</p>
+                                </div>
+                                <div class="createTaskBtn" onclick="createTaskJSON()">
+                                    <p>Create Task</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
