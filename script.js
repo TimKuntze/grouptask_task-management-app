@@ -18,7 +18,7 @@ function createTaskJSON() {
     assignJSONToVariable();
 
     id++
-    alltasks.push(task);
+
 
     /* Only for information */
     console.log(alltasks)
@@ -35,18 +35,25 @@ function gatherTasksData() {
 }
 
 function assignJSONToVariable() {
-    task = {
-        "title": `${titleValue}`,
-        "category": `${categoryValue}`,
-        "description": `${descriptionValue}`,
-        "date": `${dateValue}`,
-        "urgency": `${urgencyValue}`,
-        "status": `to do`,
-        /* Next it will be created a databank of people that can be assigned for a task */
-        /* Name, e-mail and avatar's pic */
-        "assigned": `responsablesArray`,
-        "id": `${id}`
-    };
+
+    if (!(titleValue != '' & categoryValue != 'Select a category:' & descriptionValue != '' & urgencyValue != 'Select the urgency:')) {
+        alert('Your task was not created. Please, fill out all the fields.')
+    } else {
+        task = {
+            "title": `${titleValue}`,
+            "category": `${categoryValue}`,
+            "description": `${descriptionValue}`,
+            "date": `${dateValue}`,
+            "urgency": `${urgencyValue}`,
+            "status": `to do`,
+            /* Next it will be created a databank of people that can be assigned for a task */
+            /* Name, e-mail and avatar's pic */
+            "assigned": `responsablesArray`,
+            "id": `${id}`
+        };
+        alltasks.push(task);
+        alert('You added a task successfully!')
+    }
 }
 
 function resetPage() {
