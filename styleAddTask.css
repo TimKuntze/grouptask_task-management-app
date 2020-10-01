@@ -42,6 +42,7 @@ ul {
     padding-left: 20px;
     border-left: 4px solid transparent;
     color: rgb(196, 195, 218);
+    cursor: pointer;
 }
 
 .navBar:last-child {
