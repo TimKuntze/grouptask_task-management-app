@@ -126,35 +126,55 @@ ul {
 }
 
 .allTasks {
-    border: 1px white solid;
     border-radius: 10px;
     text-align: left !important;
-    width: 85%;
-    height: 40px;
+    width: 80%;
+    height: 80px;
     padding: 8px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: white;
 }
 
-.taskCategory {
-    text-transform: uppercase;
+.taskDate {
+    font-size: 11px;
+    color: rgb(119, 118, 118);
+}
+
+.taskTitle {
+    font-size: 15px;
     font-weight: bold;
 }
 
-.todoTasks {
-    background-color: rgb(241, 206, 206);
+.taskDescription {
+    font-size: 13px;
 }
 
-.inprogressTasks {
-    background-color: rgb(240, 215, 195);
+.taskCategory {
+    font-size: 9px;
+    padding: 2px;
+    margin-top: 8px;
+    background-color: rgb(112, 149, 255);
+    width: 11em;
+    height: 1.7em;
+    border-radius: 3px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
-.testingTasks {
-    background-color: rgb(236, 236, 212);
+.categoryManagement {
+    border-left: 16px solid rgb(87, 175, 104);
 }
 
-.doneTasks {
-    background-color: rgb(204, 236, 195);
+.categoryDailyReport {
+    border-left: 16px solid rgb(226, 112, 255);
+}
+
+.categoryTraining {
+    border-left: 16px solid rgb(254, 176, 112);
 }
