@@ -76,3 +76,37 @@ function alertController(parameter) {
         controller.classList.add('dHide');
     }, 3000);
 }
+
+/*Javascript for Dashboard - STILL IN PROGRESS*/
+
+let dashboard = [];
+
+function addTaskToDashboard() {
+    let addedTask = task[id];
+    dashboard.push(addedTask);
+    updateDashboard();
+    console.log(addedTask);
+}
+
+function updateDashboard() {
+    for (let id = 0; id < dashboard.length; id++) {
+        let dashboardItem = dashboard[id];
+        let dashboardHTML = `
+        <div class="para" id="para">  
+        <p>${dashboardItem.title} ${dashboardItem.description}</p>
+        &nbsp;&nbsp;&nbsp;
+        <p><b>${dashboardItem.assigned} €</b></p>
+        </div>
+        `;
+        document.getElementById('XXX').insertAdjacentHTML('beforeend', dashboardHTML);
+    }
+}
+
+function pushTaskToInProgress() {
+}
+
+function pushTaskToTesting() {
+}
+
+function pushTaskToDone() {
+}
