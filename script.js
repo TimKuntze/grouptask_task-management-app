@@ -19,11 +19,10 @@ function createTaskJSON() {
 
     id++
 
-
     /* Only for information */
     console.log(alltasks)
 
-    resetPage();
+
 }
 
 function gatherTasksData() {
@@ -37,7 +36,10 @@ function gatherTasksData() {
 function assignJSONToVariable() {
 
     if (!(titleValue != '' & categoryValue != 'Select a category:' & descriptionValue != '' & urgencyValue != 'Select the urgency:')) {
-        alert('Your task was not created. Please, fill out all the fields.')
+
+        var arg = 'taskNotCreatedAlert';
+        alertController(arg);
+
     } else {
         task = {
             "title": `${titleValue}`,
@@ -52,7 +54,9 @@ function assignJSONToVariable() {
             "id": `${id}`
         };
         alltasks.push(task);
-        alert('You added a task successfully!')
+        resetPage();
+        var arg = 'taskCreatedAlert';
+        alertController(arg);
     }
 }
 
@@ -63,4 +67,12 @@ function resetPage() {
     document.getElementById('urgencySelector').value = `Select the urgency:`
 
     setTodaysDate();
+}
+
+function alertController(parameter) {
+    var controller = document.getElementById(parameter);
+    controller.classList.remove('dHide')
+    setTimeout(function() {
+        controller.classList.add('dHide');
+    }, 3000);
 }

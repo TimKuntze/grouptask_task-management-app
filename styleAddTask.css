@@ -303,3 +303,47 @@ ul {
 .doneTasks {
     background-color: rgb(204, 236, 195);
 }
+
+.taskNotCreatedAlert {
+    background-color: red;
+    font-weight: bold;
+    color: white;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.taskNotCreatedAlert p {
+    margin: 0px;
+    white-space: nowrap;
+}
+
+.taskCreatedAlert {
+    background-color: green;
+    font-weight: bold;
+    color: white;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.taskNotCreatedAlert p {
+    margin: 0px;
+    white-space: nowrap;
+}
+
+.dHide {
+    display: none;
+}
