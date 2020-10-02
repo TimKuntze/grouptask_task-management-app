@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 Folgender Satz muss in den Footer:
 
+=======
+Folgender Satz muss in den Footer:
+
+>>>>>>> 60e4a082c066296006b233bcf9051f015ba36dab
 Logos stammen u. A.von <a href="https://icons8.com">https://icons8.com</a>
