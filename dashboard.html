@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App - Dashboard</title>
+    <link rel="stylesheet" href="styleDashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+
+<body onload="displayTasks()">
+    <section class="navBarContainer" id="navBarContainer">
+
+        <nav class="navBar" id="navBar">
+
+            <ul>
+                <img src="./img/logo.png">
+
+                <li class="navBar-dashboard-selection">
+                    Board
+                </li>
+
+                <li onclick="location.href='backlog.html'">
+                    Backlog
+                </li>
+                <li onclick="location.href='addTask.html'">
+                    Add Task
+                </li>
+                <li>
+                    Help
+                </li>
+            </ul>
+
+            <div>
+                <!-- In a real application, the user should log-in the app, and this should be the pic of her/his avatar -->
+                <img class="avatarPic " id="avatarPic " src="./img/avatar.jpg ">
+            </div>
+
+        </nav>
+
+    </section>
+
+    <section class="dashboardPage" id="dashboard">
+
+        <head>
+            <h1 class="dashboardHead" id="dashboardHead">Dashboard</h1>
+        </head>
+
+        <div class="dashboardContainer" id="dashboardContainer ">
+
+            <div class="dashboardColumn">
+                <p class="dashboardHeader">TO DO </p>
+
+                <div class="todoColumn" id="todoColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+
+
+
+
+                    <div class="todoTasks allTasks urgencyHigh" id="todoTasks">
+                        <div class="taskDate" id="taskDate">Datum</div>
+                        <div class="taskTitle" id="taskTitle">Title</div>
+                        <div class="taskDescription" id="taskDescription"><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione iste amet adipisci enim alias veritatis, tenetur corporis fugiat blanditiis necessitatibus, ipsum, vitae laborum ad distinctio? Necessitatibus quisquam ex eum
+                                pariatur.</span></div>
+                        <div class="taskCategory" id="taskCategory">Category</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboardColumn">
+                <p class="dashboardHeader">IN PROGRESS</p>
+
+                <div class="inprogressColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                    <div class="inprogressTasks allTasks urgencyHigh" id="inprogressTasks">
+                        <div class="taskDate" id="taskDate">Datum</div>
+                        <div class="taskTitle" id="taskTitle">Title</div>
+                        <div class="taskDescription" id="taskDescription"><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione iste amet adipisci enim alias veritatis, tenetur corporis fugiat blanditiis necessitatibus, ipsum, vitae laborum ad distinctio? Necessitatibus quisquam ex eum
+                                pariatur.</span></div>
+                        <div class="taskCategory" id="taskCategory">Category</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboardColumn">
+                <p class="dashboardHeader">TESTING</p>
+
+                <div class="testingColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                    <div class="testingTasks allTasks urgencyMedium" id="testingTasks">
+                        <div class="taskDate" id="taskDate">Datum</div>
+                        <div class="taskTitle" id="taskTitle">Title</div>
+                        <div class="taskDescription" id="taskDescription"><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione iste amet adipisci enim alias veritatis, tenetur corporis fugiat blanditiis necessitatibus, ipsum, vitae laborum ad distinctio? Necessitatibus quisquam ex eum
+                                pariatur.</span></div>
+                        <div class="taskCategory" id="taskCategory">Category</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboardColumn">
+                <p class="dashboardHeader">DONE</p>
+
+                <div class="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                    <div class="doneTasks allTasks urgencyDone" id="doneTasks">
+                        <div class="taskDate" id="taskDate">Datum</div>
+                        <div class="taskTitle" id="taskTitle">Title</div>
+                        <div class="taskDescription" id="taskDescription"><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione iste amet adipisci enim alias veritatis, tenetur corporis fugiat blanditiis necessitatibus, ipsum, vitae laborum ad distinctio? Necessitatibus quisquam ex eum
+                                pariatur.</span></div>
+                        <div class="taskCategory" id="taskCategory">Category</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
