@@ -129,13 +129,48 @@ ul {
     border-radius: 10px;
     text-align: left !important;
     width: 80%;
-    height: 80px;
+    height: 5.5em;
     padding: 8px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     background-color: white;
+    position: relative;
+}
+
+.todoColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inprogressColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testingColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.doneColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todoTasks {
+    margin-bottom: 1em;
+}
+
+.deleteTask {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
 }
 
 .taskDate {
@@ -144,18 +179,20 @@ ul {
 }
 
 .taskTitle {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .taskDescription {
-    font-size: 13px;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 2.5em;
 }
 
 .taskCategory {
     font-size: 9px;
     padding: 2px;
-    margin-top: 8px;
     background-color: rgb(112, 149, 255);
     width: 11em;
     height: 1.7em;
@@ -165,16 +202,26 @@ ul {
     align-items: center;
     justify-content: center;
     color: white;
+    position: absolute;
+    bottom: 1em;
 }
 
-.categoryManagement {
+.urgencyLow {
+    border-left: 16px solid rgb(238, 213, 101);
+}
+
+.urgencyMedium {
+    border-left: 16px solid rgb(238, 156, 101);
+}
+
+.urgencyHigh {
+    border-left: 16px solid rgb(238, 101, 101);
+}
+
+.urgencyDone {
     border-left: 16px solid rgb(87, 175, 104);
 }
 
-.categoryDailyReport {
-    border-left: 16px solid rgb(226, 112, 255);
-}
-
-.categoryTraining {
-    border-left: 16px solid rgb(254, 176, 112);
+.d-none {
+    display: none;
 }
