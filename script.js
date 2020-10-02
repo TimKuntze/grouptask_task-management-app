@@ -107,20 +107,16 @@ let testJSON = [{
 /*Pushing filled task-JSON into dashboard*/
 
 function displayTasks() {
-    let toDoList = getElementById('todoColumn');
     for (let id = 0; id < testJSON.length; id++) {
-        let listToDoTasks = document.createElement('div');
-        let testJSONItem = testJSON[id];
-        listToDoTasks.innerHTML = `
-        <div class="todoTasks allTasks urgencyLow" draggable="true" ondragstart="drag(event)" id="todoTasks">
+        listToDoTasks = `<div class="todoTasks allTasks" draggable="true" ondragstart="drag(event)" id="todoTasks">
         <div onclick="deleteTask()" class="deleteTask" id="deleteTask"><img src="img/x-mark-3-16.png"></div>
-        <div class="taskDate" id="taskDate">${testJSONItem.date}</div>
-        <div class="taskTitle" id="taskTitle">${testJSONItem.title}</div>
-        <div class="taskDescription" id="taskDescription"><span>${testJSONItem.description}</span></div>
-        <div class="taskCategory" id="taskCategory">${testJSONItem.category}</div>
-        </div>
-        `;
-        toDoList.appendChild(listToDoTasks);
+        <div class="taskDate" id="taskDate">${testJSON[id]['date']}</div>
+        <div class="taskTitle" id="taskTitle">${testJSON[id]['title']}</div>
+        <div class="taskDescription" id="taskDescription"><span>${testJSON[id]['description']}</span></div>
+        <div class="taskCategory" id="taskCategory">${testJSON[id]['category']}</div>
+        </div>`;
+
+        document.getElementById('todoColumn').insertAdjacentHTML('beforeend', listToDoTasks);
     }
 }
 
