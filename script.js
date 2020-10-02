@@ -79,34 +79,71 @@ function alertController(parameter) {
 
 /*Javascript for Dashboard - STILL IN PROGRESS*/
 
-let dashboard = [];
+/*JSON for testing purposes*/
 
-function addTaskToDashboard() {
-    let addedTask = task[id];
-    dashboard.push(addedTask);
-    updateDashboard();
-    console.log(addedTask);
-}
+let testJSON = [{
+        "title": "TitleA",
+        "category": "CategoryA",
+        "description": "CategoryA",
+        "date": "DateA",
+        "urgency": "UrgencyA",
+    },
+    {
+        "title": "TitleB",
+        "category": "CategoryB",
+        "description": "CategoryB",
+        "date": "DateB",
+        "urgency": "UrgencyB",
+    },
+    {
+        "title": "TitleC",
+        "category": "CategoryC",
+        "description": "CategoryC",
+        "date": "DateC",
+        "urgency": "UrgencyC",
+    }
+];
 
-function updateDashboard() {
-    for (let id = 0; id < dashboard.length; id++) {
-        let dashboardItem = dashboard[id];
-        let dashboardHTML = `
-        <div class="para" id="para">  
-        <p>${dashboardItem.title} ${dashboardItem.description}</p>
-        &nbsp;&nbsp;&nbsp;
-        <p><b>${dashboardItem.assigned} €</b></p>
+/*Pushing filled task-JSON into dashboard*/
+
+function displayTasks() {
+    let toDoList = getElementById('todoColumn');
+    for (let id = 0; id < testJSON.length; id++) {
+        let listToDoTasks = document.createElement('div');
+        let testJSONItem = testJSON[id];
+        listToDoTasks.innerHTML = `
+        <div class="todoTasks allTasks urgencyLow" draggable="true" ondragstart="drag(event)" id="todoTasks">
+        <div onclick="deleteTask()" class="deleteTask" id="deleteTask"><img src="img/x-mark-3-16.png"></div>
+        <div class="taskDate" id="taskDate">${testJSONItem.date}</div>
+        <div class="taskTitle" id="taskTitle">${testJSONItem.title}</div>
+        <div class="taskDescription" id="taskDescription"><span>${testJSONItem.description}</span></div>
+        <div class="taskCategory" id="taskCategory">${testJSONItem.category}</div>
         </div>
         `;
-        document.getElementById('XXX').insertAdjacentHTML('beforeend', dashboardHTML);
+        toDoList.appendChild(listToDoTasks);
     }
 }
 
-function pushTaskToInProgress() {
+/*Adding a colored border to the dashboard tasks depending on the tasks urgency*/
+
+function addUrgencyColor() {}
+
+/*Function for drag&drop of single tasks in dashboard*/
+
+function allowDrop(ev) {
+    ev.preventDefault();
 }
 
-function pushTaskToTesting() {
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function pushTaskToDone() {
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
 }
+
+/*Deleting a task*/
+
+function deleteTask() {}
