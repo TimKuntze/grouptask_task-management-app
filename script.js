@@ -35,29 +35,39 @@ function gatherTasksData() {
 
 function assignJSONToVariable() {
 
-    if (!(titleValue != '' & categoryValue != 'Select a category:' & descriptionValue != '' & urgencyValue != 'Select the urgency:')) {
+    if (formIsValid()) {
 
-        var arg = 'taskNotCreatedAlert';
-        alertController(arg);
+        var alertType = 'taskNotCreatedAlert';
+        alertController(alertType);
 
     } else {
-        task = {
-            "title": `${titleValue}`,
-            "category": `${categoryValue}`,
-            "description": `${descriptionValue}`,
-            "date": `${dateValue}`,
-            "urgency": `${urgencyValue}`,
-            "status": `to do`,
-            /* Next it will be created a databank of people that can be assigned for a task */
-            /* Name, e-mail and avatar's pic */
-            "assigned": `responsablesArray`,
-            "id": `${id}`
-        };
+
+        assignValueToVariable();
+
         alltasks.push(task);
         resetPage();
-        var arg = 'taskCreatedAlert';
-        alertController(arg);
+        var alertType = 'taskCreatedAlert';
+        alertController(alertType);
     }
+}
+
+function formIsValid() {
+    return !(titleValue != '' & categoryValue != 'Select a category:' & descriptionValue != '' & urgencyValue != 'Select the urgency:');
+}
+
+function assignValueToVariable() {
+    task = {
+        "title": `${titleValue}`,
+        "category": `${categoryValue}`,
+        "description": `${descriptionValue}`,
+        "date": `${dateValue}`,
+        "urgency": `${urgencyValue}`,
+        "status": `to do`,
+        /* Next it will be created a databank of people that can be assigned for a task */
+        /* Name, e-mail and avatar's pic */
+        "assigned": `responsablesArray`,
+        "id": `${id}`
+    };
 }
 
 function resetPage() {
