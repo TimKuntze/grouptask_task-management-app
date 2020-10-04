@@ -1,11 +1,11 @@
 /**
- * This array stores every task created.
+ * This array stores all the tasks created.
  * @Type - Array
  */
 let alltasks = [];
 
 /**
- * This is a serial number for all tasks ever created.
+ * This is a serial number for every task ever created.
  */
 let id = 1;
 
@@ -23,7 +23,7 @@ let urgencyValue;
 
 
 /**
- * Sets the input 'Due Date' to the current date.
+ * Pre-sets the input 'Due Date' to the current date.
  * @function
  */
 function setTodaysDate() {
@@ -32,7 +32,7 @@ function setTodaysDate() {
 }
 
 /**
- * Gathers the data to create a JSON obj, creates a JSON obj, pushes it into the 'let allTasks'
+ * Gathers the data to build a JSON obj, creates a JSON obj, pushes it into the 'let allTasks'
  * and increse the serial number 'let id' in one.
  * @function
  */
@@ -50,7 +50,7 @@ function createTaskJSON() {
 }
 
 /**
- * gathers the data to build a JSON obj.
+ * Gathers the data to build a JSON obj.
  * @function
  */
 function gatherTasksData() {

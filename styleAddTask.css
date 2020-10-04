@@ -348,3 +348,21 @@ ul {
 .dHide {
     display: none;
 }
+
+@media (max-width: 520px) {
+    .taskCreator {
+        flex-direction: column;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .navBar {
+        display: none;
+    }
+    .taskCreatorColumn {
+        width: 100%;
+        padding: 0px;
+    }
+    .taskCreatorContainer {
+        margin: 0px;
+    }
+}
