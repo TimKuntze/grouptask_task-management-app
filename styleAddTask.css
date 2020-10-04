@@ -25,11 +25,22 @@ h2 {
     font-size: 12px;
 }
 
-ul {
+.navBar ul {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
     height: 100vh;
+}
+
+.navListMobile {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    padding: 10px;
+}
+
+.navListMobile li {
+    padding: 5px;
 }
 
 .navBar img {
@@ -354,7 +365,7 @@ ul {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 60px;
+    height: 30px;
     background-color: rgb(30, 49, 144);
 }
 
@@ -362,15 +373,43 @@ ul {
     cursor: pointer;
 }
 
+.navListMobile {
+    color: white;
+    background-color: rgb(30, 49, 144);
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+}
+
 @media (min-width: 521px) {
     .navBarMobile {
         display: none;
-        position: fixed;
-        top: 0px;
+    }
+    .navListMobile {
+        display: none;
     }
 }
 
 @media (max-width: 520px) {
+    h2 {
+        margin-bottom: 10px;
+    }
+    .navBarMobile {
+        position: fixed;
+        padding: 5px;
+        top: 0px;
+        z-index: 20;
+    }
+    .navListMobile {
+        /* display: none; */
+        position: fixed;
+        width: 100%;
+        padding: 5px;
+        top: 40px;
+        z-index: 20;
+    }
+    .addTaskPage {
+        margin-top: 30px;
+    }
     .taskCreator {
         flex-direction: column;
         padding-right: 10px;
@@ -385,5 +424,17 @@ ul {
     }
     .taskCreatorContainer {
         margin: 0px;
+    }
+    .taskNotCreatedAlert {
+        margin-top: 40px;
+    }
+    .taskCreatedAlert {
+        margin-top: 40px;
+    }
+    .taskNotCreatedAlert p {
+        font-size: 14px;
+    }
+    .taskCreatedAlert p {
+        font-size: 14px;
     }
 }

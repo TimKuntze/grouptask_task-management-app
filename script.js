@@ -134,6 +134,21 @@ function alertController(alertID) {
     }, 3000);
 }
 
+/**
+ * Displays the nav li, if @media (max-width: 520px).
+ * @function
+ */
+function displayNavMobile() {
+    var isHide = window.getComputedStyle(document.getElementById('navListMobile')).display;
+
+    if (isHide == 'none') {
+        document.getElementById('navListMobile').classList.remove('dHide');
+    } else {
+        document.getElementById('navListMobile').classList.add('dHide');
+    }
+
+}
+
 /*Javascript for Dashboard - STILL IN PROGRESS*/
 
 /*JSON for testing purposes*/

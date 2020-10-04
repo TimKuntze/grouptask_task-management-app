@@ -11,6 +11,7 @@
 </head>
 
 <body onload="setTodaysDate()">
+
     <section class="navBarContainer" id="navBarContainer">
 
         <nav class="navBar" id="navBar">
@@ -43,8 +44,23 @@
     <section class="addTaskPage" id="addTaskPage">
 
         <nav class="navBarMobile" id="navBarMobile">
-            <img src="./img/icons8-menu-48.png">
+            <img src="./img/icons8-menu-48.png" onclick="displayNavMobile()">
         </nav>
+
+        <ul class="navListMobile dHide" id="navListMobile">
+            <li onclick="location.href='dashboard.html'">
+                Board
+            </li>
+            <li onclick="location.href='backlog.html'">
+                Backlog
+            </li>
+            <li onclick="location.href='addTask.html'">
+                Add Task
+            </li>
+            <li>
+                Help
+            </li>
+        </ul>
 
         <head>
             <h1 class="addTaskHead" id="addTaskHead">Add Task</h1>
