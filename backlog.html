@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <html lang="en">
 
 <head>
@@ -7,10 +6,10 @@
     <title>Task Management App</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&amp;display=swap" rel="stylesheet">
-    <script src="task.js"></script>
+    <script src="backlog.js"></script>
 </head>
 
-<body onload="setTodaysDate()">
+<body>
     <section class="navBarContainer" id="navBarContainer">
 
         <nav class="navBar" id="navBar">
@@ -67,8 +66,8 @@
                 <img class="assign-picture" src="img/Hong-Hanh.png">
 
 
-                <div class="column">
-                    <form class="form" onsubmit="submitTaskBacklog(event)">
+                <div class="form">
+                    <form class="column" onsubmit="submitTaskBacklog(event)">
                         <input type="text" id="name" placeholder="Hong Hanh Chu" style="width: 18vw;">
                         <input type="email" id="email" placeholder="HongHanhChu@mail.com"
                             style="color: rgb(141, 165, 251); width: 18vw;">
@@ -77,7 +76,7 @@
                 </div>
 
 
-                <form class="form" onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
+                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
 
                     <input type="text" id="category" placeholder="Backlog Design" style="width: 18vw;">
 
@@ -85,7 +84,7 @@
                 </form>
 
 
-                <form class="form" onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
+                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
 
                     <input type="text" id="details" placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing"
                         style="width: 24vw;">
@@ -100,8 +99,8 @@
                 <img class="assign-picture" src="img/avatarAtila.jpg">
 
 
-                <div class="column">
-                    <form class="form" onsubmit="submitTaskBacklog(event)">
+                <div class="form">
+                    <form class="column" onsubmit="submitTaskBacklog(event)">
                         <input type="text" id="name" placeholder="Átila Oliveira Jr" style="width: 18vw;">
                         <input type="email" id="email" placeholder="ÁtilaOliveiraJr@mail.com"
                             style="color: rgb(141, 165, 251); width: 18vw;">
@@ -110,7 +109,7 @@
                 </div>
 
 
-                <form class="form" onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
+                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
 
                     <input type="text" id="category" placeholder="Add Task Design" style="width: 18vw;">
 
@@ -118,7 +117,7 @@
                 </form>
 
 
-                <form class="form" onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
+                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
 
                     <input type="text" id="details" placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing"
                         style="width: 24vw;">
@@ -133,8 +132,8 @@
                 <img class="assign-picture" src="img/TimKuntze.jpg">
 
 
-                <div class="column">
-                    <form class="form" onsubmit="submitTaskBacklog(event)">
+                <div class="form">
+                    <form class="column" onsubmit="submitTaskBacklog(event)">
                         <input type="text" id="name" placeholder="Tim Kuntze" style="width: 18vw;">
                         <input type="email" id="email" placeholder="TimKuntze@mail.com"
                             style="color: rgb(141, 165, 251); width: 18vw;">
@@ -143,7 +142,7 @@
                 </div>
 
 
-                <form class="form" onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
+                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
 
                     <input type="text" id="category" placeholder="Board Design" style="width: 18vw;">
 
@@ -151,7 +150,7 @@
                 </form>
 
 
-                <form class="form" onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
+                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
 
                     <input type="text" id="details" placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing"
                         style="width: 24vw;">
@@ -166,8 +165,8 @@
                 <img class="assign-picture" src="img/JunusErgin.jpg">
 
 
-                <div class="column">
-                    <form class="form" onsubmit="submitTaskBacklog(event)">
+                <div class="form">
+                    <form class="column" onsubmit="submitTaskBacklog(event)">
                         <input type="text" id="name" placeholder="Junus Ergin" style="width: 18vw;">
                         <input type="email" id="email" placeholder="JunusErgin@mail.com"
                             style="color: rgb(141, 165, 251); width: 18vw;">
@@ -176,7 +175,7 @@
                 </div>
 
 
-                <form class="form" onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
+                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
 
                     <input type="text" id="category" placeholder="Project Management" style="width: 18vw;">
 
@@ -184,7 +183,7 @@
                 </form>
 
 
-                <form class="form" onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
+                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
 
                     <input type="text" id="details" placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing"
                         style="width: 24vw;">
@@ -201,120 +200,3 @@
 </body>
 
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management App</title>
-    <link rel="stylesheet" href="styleBacklog.css">
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
-    <script src="task.js"></script>
-</head>
-
-<body onload="setTodaysDate()">
-    <section class="navBarContainer" id="navBarContainer">
-
-        <nav class="navBar" id="navBar">
-
-            <ul>
-                <img src="./img/logo.png">
-                <li onclick="location.href='dashboard.html'">
-                    Board
-                </li>
-                <li>
-                    Backlog
-                </li>
-                <li onclick="location.href='addTask.html'">
-                    Add Task
-                </li>
-                <li>
-                    Help
-                </li>
-            </ul>
-
-            <div>
-                <!-- In a real application, the user should log-in the app, and this should be the pic of her/his avatar -->
-                <img class="avatarPic" id="avatarPic" src="./img/avatar.jpg">
-            </div>
-
-        </nav>
-
-    </section>
-    <section class="backlog-container">
-
-        <div class="backlog-headline">
-
-            <b>
-                <p style="font-size: 28px; font-weight: bolder;"> Backlog </p>
-            </b>
-
-            <p style="font-size: 13px; position: absolute; top: 9vh; color: rgb(64, 80, 161);"> Learning Management
-                System Project </p>
-        </div>
-
-        <div class="backlog-assign">
-
-            <div> ASSIGNED TO </div>
-            <div class="category"> CATEGORY </div>
-            <div class="details"> DETAILS </div>
-
-        </div>
-
-        <div class="assign-container">
-
-            <div class="assign-task-1">
-
-                <img class="assign-picture" src="img/Hong-Hanh.png">
-
-                <div class="column"> Hong Hanh Chu <a href="mailto:HongHanhChu@mail.com"> HongHanhChu@mail.com </a> </div>
-                <div style="position: absolute; left: 34.5vw; font-size: 13px; font-weight: bolder;"> Backlog Design
-                </div>
-                <div style="position: absolute; left: 54vw; font-size: 13px; font-weight: bolder;"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore </div>
-            </div>
-
-            <div class="assign-task-2 border-green">
-
-                <img class="assign-picture" src="img/avatarAtila.jpg">
-
-                <div class="column"> Átila Oliveira Jr <a href="ÁtilaOliveiraJr@mail.com"> ÁtilaOliveiraJr@mail.com </a>
-                </div>
-                <div style="position: absolute; left: 34.5vw; font-size: 13px; font-weight: bolder;"> Add Task Design
-                </div>
-                <div style="position: absolute; left: 54vw; font-size: 13px; font-weight: bolder;"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore </div>
-            </div>
-
-
-            <div class="assign-task-3 border-violet">
-
-                <img class="assign-picture" src="img/TimKuntze.jpg">
-
-                <div class="column"> Tim Kuntze <a href="TimKuntze@mail.com"> TimKuntze@mail.com </a> </div>
-                <div style="position: absolute; left: 34.5vw; font-size: 13px; font-weight: bolder;"> Board Design
-                </div>
-                <div style="position: absolute; left: 54vw; font-size: 13px; font-weight: bolder;"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore </div>
-            </div>
-
-            <div class="assign-task-4 border-turquoise">
-
-                <img class="assign-picture" src="img/JunusErgin.jpg">
-
-                <div class="column"> Junus Ergin <a href="JunusErgin@mail.com"> JunusErgin@mail.com </a> </div>
-                <div style="position: absolute; left: 34.5vw; font-size: 13px; font-weight: bolder;"> Project Management
-                </div>
-                <div style="position: absolute; left: 54vw; font-size: 13px; font-weight: bolder;"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore </div>
-            </div>
-        </div>
-
-
-
-    </section>
-
-
-
-</body>
-
-</html>
->>>>>>> 60e4a082c066296006b233bcf9051f015ba36dab
