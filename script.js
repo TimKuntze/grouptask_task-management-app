@@ -1,20 +1,45 @@
+/**
+ * This array stores every task created.
+ * @Type - Array
+ */
 let alltasks = [];
+
+/**
+ * This is a serial number for all tasks ever created.
+ */
 let id = 1;
+
+
+/**
+ * This let stores a JSON obj.
+ */
+let task;
 
 let titleValue;
 let categoryValue;
 let descriptionValue;
 let dateValue;
 let urgencyValue;
-let task;
 
+
+/**
+ * Sets the input 'Due Date' to the current date.
+ * @function
+ */
 function setTodaysDate() {
     let today = new Date().toISOString().substr(0, 10);
     document.querySelector("#dateInput").value = today;
 }
 
+/**
+ * Gathers the data to create a JSON obj, creates a JSON obj, pushes it into the 'let allTasks'
+ * and increse the serial number 'let id' in one.
+ * @function
+ */
 function createTaskJSON() {
+
     gatherTasksData();
+
     assignJSONToVariable();
 
     id++
@@ -22,9 +47,12 @@ function createTaskJSON() {
     /* Only for information */
     console.log(alltasks)
 
-
 }
 
+/**
+ * gathers the data to build a JSON obj.
+ * @function
+ */
 function gatherTasksData() {
     titleValue = document.getElementById('titleInput').value;
     categoryValue = document.getElementById('categorySelector').value;
@@ -33,29 +61,39 @@ function gatherTasksData() {
     dateValue = document.querySelector("#dateInput").value;
 }
 
+/**
+ * Creates a JSON obj, pushes it into the 'let allTasks'.
+ * @function
+ */
 function assignJSONToVariable() {
 
     if (formIsValid()) {
-
-        var alertType = 'taskNotCreatedAlert';
-        alertController(alertType);
+        var alertID = 'taskNotCreatedAlert';
+        alertController(alertID);
 
     } else {
-
-        assignValueToVariable();
-
+        createATask();
         alltasks.push(task);
         resetPage();
-        var alertType = 'taskCreatedAlert';
-        alertController(alertType);
+        var alertID = 'taskCreatedAlert';
+        alertController(alertID);
+
     }
 }
-
+/**
+ * Validates if the form is filled out.
+ * @function
+ * @returns - Boolean True || Bollean False
+ */
 function formIsValid() {
     return !(titleValue != '' & categoryValue != 'Select a category:' & descriptionValue != '' & urgencyValue != 'Select the urgency:');
 }
 
-function assignValueToVariable() {
+/**
+ * Builds a JSON obj and stores it in the 'let task'.
+ * @function
+ */
+function createATask() {
     task = {
         "title": `${titleValue}`,
         "category": `${categoryValue}`,
@@ -70,6 +108,10 @@ function assignValueToVariable() {
     };
 }
 
+/**
+ * Set the input field at the HTML to 'blank'.
+ * @function
+ */
 function resetPage() {
     document.getElementById('titleInput').value = ``;
     document.getElementById('categorySelector').value = `Select a category:`;
@@ -79,8 +121,13 @@ function resetPage() {
     setTodaysDate();
 }
 
-function alertController(parameter) {
-    var controller = document.getElementById(parameter);
+/**
+ * Display an alert to the user, if the request occurred successfully or not.
+ * @function
+ * @param {string} alertID - The kind of alert.
+ */
+function alertController(alertID) {
+    var controller = document.getElementById(alertID);
     controller.classList.remove('dHide')
     setTimeout(function() {
         controller.classList.add('dHide');
