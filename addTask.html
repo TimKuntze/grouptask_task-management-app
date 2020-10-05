@@ -130,14 +130,14 @@
                             Assigned to
                         </p>
 
-                        <div class="assignedToArea">
+                        <div class="assignedToArea" id="assignedToArea">
 
                             <div class="avatarPicsArea">
                                 <div>
                                     <img class="avatarAssigned" id="avatarPic" src="./img/avatarAtila.jpg">
                                 </div>
                                 <div>
-                                    <img class="avatarPlusBtn" id="avatarPic" src="./img/icon plus.png">
+                                    <img class="avatarPlusBtn" id="avatarPic" src="./img/icon plus.png" onclick="displayAssignedToList()">
                                 </div>
                             </div>
 
@@ -151,6 +151,19 @@
                             </div>
 
                         </div>
+
+                        <div class="assignedToList dHide" id="assignedToList">
+                            <ul>
+                                <li>Átila Oliveira</li>
+                                <li>Hong Hanh</li>
+                                <li>Tim Kuntze</li>
+                                <li id="assingendToCancelBtn" onclick="assingendToCancel()">Cancel</li>
+                            </ul>
+
+
+
+                        </div>
+
                     </div>
                 </div>
 

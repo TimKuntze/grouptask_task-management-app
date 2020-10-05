@@ -149,6 +149,16 @@ function displayNavMobile() {
 
 }
 
+function displayAssignedToList() {
+    document.getElementById('assignedToList').classList.remove('dHide');
+    document.getElementById('assignedToArea').classList.add('dHide');
+}
+
+function assingendToCancel() {
+    document.getElementById('assignedToList').classList.add('dHide');
+    document.getElementById('assignedToArea').classList.remove('dHide');
+}
+
 /*Javascript for Dashboard - STILL IN PROGRESS*/
 
 /*JSON for testing purposes*/
