@@ -44,6 +44,9 @@ function createTaskJSON() {
 
     id++
 
+    /*transform JSON data to a string for local storage*/
+    transformToString();
+
     /* Only for information */
     console.log(alltasks)
 
@@ -161,7 +164,7 @@ function assingendToCancel() {
 
 /*Javascript for Dashboard - STILL IN PROGRESS*/
 
-/*JSON for testing purposes*/
+/*JSON for testing purposes
 
 let testJSON = [{
         "title": "TitleA",
@@ -184,27 +187,43 @@ let testJSON = [{
         "date": "DateC",
         "urgency": "UrgencyC",
     }
-];
+];*/
 
 /*Pushing filled task-JSON into dashboard*/
 
 function displayTasks() {
-    for (let id = 0; id < testJSON.length; id++) {
+
+    let alltasksAsString = localStorage.getItem('alltasks');
+    alltasks = JSON.parse(alltasksAsString);
+    for (let id = 0; id < alltasks.length; id++) {
+
         listToDoTasks = `<div class="todoTasks allTasks" draggable="true" ondragstart="drag(event)" id="todoTasks">
         <div onclick="deleteTask()" class="deleteTask" id="deleteTask"><img src="img/x-mark-3-16.png"></div>
-        <div class="taskDate" id="taskDate">${testJSON[id]['date']}</div>
-        <div class="taskTitle" id="taskTitle">${testJSON[id]['title']}</div>
-        <div class="taskDescription" id="taskDescription"><span>${testJSON[id]['description']}</span></div>
-        <div class="taskCategory" id="taskCategory">${testJSON[id]['category']}</div>
+        <div class="taskDate" id="taskDate">${alltasks[id]['date']}</div>
+        <div class="taskTitle" id="taskTitle">${alltasks[id]['title']}</div>
+        <div class="taskDescription" id="taskDescription"><span>${alltasks[id]['description']}</span></div>
+        <div class="taskCategory" id="taskCategory">${alltasks[id]['category']}</div>
         </div>`;
 
         document.getElementById('todoColumn').insertAdjacentHTML('beforeend', listToDoTasks);
+        addUrgencyColor();
     }
 }
 
 /*Adding a colored border to the dashboard tasks depending on the tasks urgency*/
 
-function addUrgencyColor() {}
+function addUrgencyColor() {
+    let urgency = alltasks[id + 'urgency'];
+    if (urgency == 'Low') {
+        document.getElementById('todoTasks').classList.add('urgencyLow')
+    }
+    if (urgency == 'Medium') {
+        document.getElementById('todoTasks').classList.add('urgencyMedium')
+    }
+    if (urgency == 'High') {
+        document.getElementById('todoTasks').classList.add('urgencyHigh')
+    }
+}
 
 /*Function for drag&drop of single tasks in dashboard*/
 
@@ -224,4 +243,14 @@ function drop(ev) {
 
 /*Deleting a task*/
 
-function deleteTask() {}
+function deleteTask(id) {
+    alltasks.splice(id, 1);
+    displayTasks();
+}
+
+/*Function to stringify JSON for local storage*/
+
+function transformToString() {
+    let alltasksAsString = JSON.stringify(alltasks);
+    localStorage.setItem('alltasks', alltasksAsString);
+}
