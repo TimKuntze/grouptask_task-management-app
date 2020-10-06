@@ -165,7 +165,6 @@ function assingendToCancel() {
 /*Javascript for Dashboard - STILL IN PROGRESS*/
 
 /*JSON for testing purposes
-
 let testJSON = [{
         "title": "TitleA",
         "category": "CategoryA",
@@ -192,12 +191,10 @@ let testJSON = [{
 /*Pushing filled task-JSON into dashboard*/
 
 function displayTasks() {
-
-    let alltasksAsString = localStorage.getItem('alltasks');
-    alltasks = JSON.parse(alltasksAsString);
+    transformToJSON();
     for (let id = 0; id < alltasks.length; id++) {
 
-        listToDoTasks = `<div class="todoTasks allTasks" draggable="true" ondragstart="drag(event)" id="todoTasks">
+        listToDoTasks = `<div class="todoTasks allTasks" id="todoTasks" draggable="true" ondragstart="drag(event)">
         <div onclick="deleteTask()" class="deleteTask" id="deleteTask"><img src="img/x-mark-3-16.png"></div>
         <div class="taskDate" id="taskDate">${alltasks[id]['date']}</div>
         <div class="taskTitle" id="taskTitle">${alltasks[id]['title']}</div>
@@ -206,23 +203,34 @@ function displayTasks() {
         </div>`;
 
         document.getElementById('todoColumn').insertAdjacentHTML('beforeend', listToDoTasks);
-        addUrgencyColor();
+
     }
+    addUrgencyColor();
 }
 
 /*Adding a colored border to the dashboard tasks depending on the tasks urgency*/
 
 function addUrgencyColor() {
-    let urgency = alltasks[id + 'urgency'];
-    if (urgency == 'Low') {
-        document.getElementById('todoTasks').classList.add('urgencyLow')
+    transformToJSON();
+
+    for (let id = 0; id < alltasks.length; id++) {
+
+        let selectedUrgency = alltasks[id].urgency;
+        console.log(selectedUrgency);
+
+        if (selectedUrgency == 'Low') {
+            document.getElementById('todoTasks').classList.add('urgencyLow');
+        }
+        if (selectedUrgency == 'Medium') {
+            document.getElementById('todoTasks').classList.add('urgencyMedium');
+        }
+        if (selectedUrgency == 'High') {
+            document.getElementById('todoTasks').classList.add('urgencyHigh');
+        }
+
     }
-    if (urgency == 'Medium') {
-        document.getElementById('todoTasks').classList.add('urgencyMedium')
-    }
-    if (urgency == 'High') {
-        document.getElementById('todoTasks').classList.add('urgencyHigh')
-    }
+
+
 }
 
 /*Function for drag&drop of single tasks in dashboard*/
@@ -253,4 +261,11 @@ function deleteTask(id) {
 function transformToString() {
     let alltasksAsString = JSON.stringify(alltasks);
     localStorage.setItem('alltasks', alltasksAsString);
+}
+
+/*Function to de-stringify JSON*/
+
+function transformToJSON() {
+    let alltasksAsString = localStorage.getItem('alltasks');
+    alltasks = JSON.parse(alltasksAsString);
 }
