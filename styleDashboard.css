@@ -110,7 +110,7 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
 .dashboardHeader {
@@ -129,7 +129,7 @@ ul {
 .allTasks {
     border-radius: 10px;
     text-align: left !important;
-    width: 80%;
+    width: 10.5em;
     height: 5.5em;
     padding: 8px;
     margin-bottom: 10px;
@@ -207,15 +207,15 @@ ul {
     bottom: 1em;
 }
 
-.urgencyLow {
+.Low {
     border-left: 16px solid rgb(238, 213, 101);
 }
 
-.urgencyMedium {
+.Medium {
     border-left: 16px solid rgb(238, 156, 101);
 }
 
-.urgencyHigh {
+.High {
     border-left: 16px solid rgb(238, 101, 101);
 }
 
