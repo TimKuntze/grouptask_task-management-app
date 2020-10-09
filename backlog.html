@@ -19,7 +19,7 @@
                 <li>
                     Board
                 </li>
-                <li onclick="backlog()">
+                <li>
                     Backlog
                 </li>
                 <li>
@@ -39,7 +39,7 @@
 
     </section>
 
-    <section class="backlog-container d-none" id="backlog-container">
+    <section class="backlog-container" id="backlog-container">
 
         <div class="backlog-headline">
 
@@ -66,31 +66,22 @@
                 <img class="assign-picture" src="img/Hong-Hanh.png">
 
 
-                <div class="form">
-                    <form class="column" onsubmit="submitTaskBacklog(event)">
-                        <input type="text" id="name" placeholder="Hong Hanh Chu" style="width: 18vw;">
-                        <input type="email" id="email" placeholder="HongHanhChu@mail.com"
-                            style="color: rgb(141, 165, 251); width: 18vw;">
+                <div class="backlog-name-input">
 
-                    </form>
+                    <input id="name-1" placeholder="Name">
+                    <input id="email-1" placeholder="@mail">
+
+
                 </div>
 
 
-                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
+                <div class="backlog-category-input"> <input id="category-1" placeholder="Category"> </div>
 
-                    <input type="text" id="category" placeholder="Backlog Design" style="width: 18vw;">
-
-
-                </form>
+                <div class="backlog-details-input"> <input id="details-1" placeholder="Details">
+                </div>
 
 
-                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
-
-                    <input type="text" id="details" placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing"
-                        style="width: 24vw;">
-
-
-                </form>
+                <button class="add-btn" onclick="addTask()"> + </button>
 
             </div>
 
@@ -99,31 +90,22 @@
                 <img class="assign-picture" src="img/avatarAtila.jpg">
 
 
-                <div class="form">
-                    <form class="column" onsubmit="submitTaskBacklog(event)">
-                        <input type="text" id="name" placeholder="Átila Oliveira Jr" style="width: 18vw;">
-                        <input type="email" id="email" placeholder="ÁtilaOliveiraJr@mail.com"
-                            style="color: rgb(141, 165, 251); width: 18vw;">
+                <div class="backlog-name-input">
 
-                    </form>
+                    <input id="name-2" placeholder="Name">
+                    <input id="email-3" placeholder="@mail">
+
+
                 </div>
 
 
-                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
+                <div class="backlog-category-input"> <input id="category-2" placeholder="Category"> </div>
 
-                    <input type="text" id="category" placeholder="Add Task Design" style="width: 18vw;">
-
-
-                </form>
+                <div class="backlog-details-input"> <input id="details-2" placeholder="Details">
+                </div>
 
 
-                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
-
-                    <input type="text" id="details" placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing"
-                        style="width: 24vw;">
-
-
-                </form>
+                <button class="add-btn" onclick="addTask()"> + </button>
 
             </div>
 
@@ -132,70 +114,80 @@
                 <img class="assign-picture" src="img/TimKuntze.jpg">
 
 
-                <div class="form">
-                    <form class="column" onsubmit="submitTaskBacklog(event)">
-                        <input type="text" id="name" placeholder="Tim Kuntze" style="width: 18vw;">
-                        <input type="email" id="email" placeholder="TimKuntze@mail.com"
-                            style="color: rgb(141, 165, 251); width: 18vw;">
+                <div class="backlog-name-input">
 
-                    </form>
+                    <input id="name-3" placeholder="Name">
+                    <input id="email-3" placeholder="@mail">
+
+
                 </div>
 
 
-                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
+                <div class="backlog-category-input"> <input id="category-3" placeholder="Category"> </div>
 
-                    <input type="text" id="category" placeholder="Board Design" style="width: 18vw;">
+                <div class="backlog-details-input"> <input id="details-3" placeholder="Details">
 
+                </div>
 
-                </form>
-
-
-                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
-
-                    <input type="text" id="details" placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing"
-                        style="width: 24vw;">
-
-
-                </form>
+                <button class="add-btn" onclick="addTask()"> + </button>
 
             </div>
+            <div class="assign-task-2">
+
+                <img class="assign-picture" src="img/avatarAtila.jpg">
+
+
+                <div class="backlog-name-input">
+
+                    <input id="name-2" placeholder="Name">
+                    <input id="email-2" placeholder="@mail">
+
+
+                </div>
+
+
+                <div class="backlog-category-input"> <input id="category-2" placeholder="Category"> </div>
+
+                <div class="backlog-details-input"> <input id="details-2" placeholder="Details">
+
+                </div>
+
+                <button class="add-btn" onclick="addTask()"> + </button>
+
+            </div>
+
+
+
 
             <div class="assign-task-4">
 
                 <img class="assign-picture" src="img/JunusErgin.jpg">
 
 
-                <div class="form">
-                    <form class="column" onsubmit="submitTaskBacklog(event)">
-                        <input type="text" id="name" placeholder="Junus Ergin" style="width: 18vw;">
-                        <input type="email" id="email" placeholder="JunusErgin@mail.com"
-                            style="color: rgb(141, 165, 251); width: 18vw;">
+                <div class="backlog-name-input">
 
-                    </form>
+                    <input id="name-4" placeholder="Name">
+                    <input id="email-4" placeholder="@mail">
+
+
                 </div>
 
 
-                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 35vw;">
+                <div class="backlog-category-input"> <input id="category-4" placeholder="Category"> </div>
 
-                    <input type="text" id="category" placeholder="Project Management" style="width: 18vw;">
+                <div class="backlog-details-input"> <input id="details-4" placeholder="Details">
 
+                </div>
 
-                </form>
-
-
-                <form onsubmit="submitTaskBacklog(event)" style="position:  absolute; left: 55vw;">
-
-                    <input type="text" id="details" placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing"
-                        style="width: 24vw;">
-
-
-                </form>
+                <button class="add-btn" onclick="addTask()"> + </button>
 
             </div>
 
         </div>
 
     </section>
+
+
 
 </body>
 
