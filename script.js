@@ -191,19 +191,39 @@ function assingendToConfirm() {
     document.getElementById('assignedToList').classList.add('dHide');
     document.getElementById('assignedToArea').classList.remove('dHide');
     document.getElementById('usersList').innerHTML = '';
+
 }
 
 function displayUsersList() {
     let html = '';
+    selectedUsers = '';
     users.forEach(function(user) {
-        html += `<li>${user.name}</li>`;
+        html += `<li class="" id="${user.name}" onclick="selectUser('${user.name}')" >${user.name}</li>`;
     })
 
     html += '<li id="assingendToConfirmBtn" onclick="assingendToConfirm()">Confirm</li>';
-    console.log(html)
 
     document.getElementById('usersList').insertAdjacentHTML('afterbegin', html);
 }
+
+function selectUser(userName) {
+    let isSelected = document.getElementById(userName).classList.contains('userSelected');
+
+    if (!isSelected) {
+        document.getElementById(userName).classList.add('userSelected');
+        let userFilter = user => user.name === userName;
+        let userJSON = users.filter(userFilter)
+        selectedUsers.push(userJSON[0]);
+
+    } else {
+        document.getElementById(userName).classList.remove('userSelected');
+        let userFilter = user => user.name === userName;
+        let userJSON = users.filter(userFilter)
+        let removed = selectedUsers.indexOf(userJSON[0]);
+        selectedUsers.splice(removed, 1);
+    }
+}
+
 
 /*Javascript for Dashboard - STILL IN PROGRESS*/
 

@@ -388,8 +388,6 @@ h2 {
 .assignedToList {
     background-color: white;
     height: 135px;
-    padding-top: 5px;
-    padding-bottom: 5px;
     border-radius: 4px;
     border-color: rgb(225, 225, 225);
     border-style: solid;
@@ -415,6 +413,10 @@ h2 {
 
 .assignedToList li:hover {
     cursor: pointer;
+    background-color: rgb(225, 225, 225);
+}
+
+.userSelected {
     background-color: rgb(225, 225, 225);
 }
 
