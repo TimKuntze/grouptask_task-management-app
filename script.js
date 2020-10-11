@@ -15,6 +15,35 @@ let id = 1;
  */
 let task;
 
+/**
+ * This let array the data of all users.
+ *  @Type - Array
+ */
+let users = [{
+        'name': 'Átila Oliveira',
+        'password': 'atilaspassword',
+        'pic': './img/avatarAtila.png',
+        'email': 'atila.oliveira.jr@gmail.com'
+    },
+    {
+        'name': 'Hong Hanh Chu',
+        'pic': './img/Hong-Hanh.png',
+        'password': 'honghanhspassword',
+        'email': 'hong.hanh.chu@gmail.com'
+    },
+    {
+        'name': 'Tim Kuntze',
+        'pic': './img/TimKuntze.jpg',
+        'email': 'tim.kuntze@gmail.com'
+    }
+];
+
+/**
+ * This array stores the data of users assigned to a certain task.
+ *  @Type - Array
+ */
+let selectedUsers = [];
+
 let titleValue;
 let categoryValue;
 let descriptionValue;
@@ -155,11 +184,25 @@ function displayNavMobile() {
 function displayAssignedToList() {
     document.getElementById('assignedToList').classList.remove('dHide');
     document.getElementById('assignedToArea').classList.add('dHide');
+    displayUsersList();
 }
 
-function assingendToCancel() {
+function assingendToConfirm() {
     document.getElementById('assignedToList').classList.add('dHide');
     document.getElementById('assignedToArea').classList.remove('dHide');
+    document.getElementById('usersList').innerHTML = '';
+}
+
+function displayUsersList() {
+    let html = '';
+    users.forEach(function(user) {
+        html += `<li>${user.name}</li>`;
+    })
+
+    html += '<li id="assingendToConfirmBtn" onclick="assingendToConfirm()">Confirm</li>';
+    console.log(html)
+
+    document.getElementById('usersList').insertAdjacentHTML('afterbegin', html);
 }
 
 /*Javascript for Dashboard - STILL IN PROGRESS*/
