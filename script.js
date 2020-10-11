@@ -78,7 +78,6 @@ function createTaskJSON() {
     transformToString();
 
     /* Only for information */
-
     console.log(alltasks)
 
 }
@@ -107,7 +106,6 @@ function assignJSONToVariable() {
 
     } else {
         createATask();
-        console.log(selectedUsers);
         alltasks.push(task);
         resetPage();
         var alertID = 'taskCreatedAlert';
@@ -155,6 +153,19 @@ function resetPage() {
     selectedUsers = [];
 
     setTodaysDate();
+    resetClassAvatarAssigned();
+
+}
+
+/**
+ * set the value of ''(empty) for the <img class="avatarAssigned"> after creating a task.
+ * @function
+ */
+function resetClassAvatarAssigned() {
+    var arr = Array.prototype.slice.call(document.getElementsByClassName('avatarAssigned'));
+    arr.forEach(function(element) {
+        element.remove();
+    });
 }
 
 /**
@@ -208,12 +219,16 @@ function assingendToConfirm() {
     assignedUsersAsString = JSON.stringify(selectedUsers);
 }
 
+/**
+ * Builds the list of users that were assigned to the task.
+ * @function
+ */
 function displayAssignedUsers() {
     let html = '';
     selectedUsers.forEach(function(user) {
         html += `<div><img class="avatarAssigned" id="avatarPic" src="${user.pic}"></div>`
     })
-    html += `<div><img class="avatarPlusBtn" id="avatarPic" src="./img/icon plus.png" onclick="displayAssignedToList()"></div>`;
+    html += `<div class="avatarPlusBtnContainer"><img class="avatarPlusBtn" id="avatarPic" src="./img/icon plus.png" onclick="displayAssignedToList()"></div>`;
     document.getElementById('avatarPicsArea').insertAdjacentHTML('afterbegin', html);
 }
 
