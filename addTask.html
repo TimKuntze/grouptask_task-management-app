@@ -10,7 +10,7 @@
     <script src="script.js"></script>
 </head>
 
-<body onload="setTodaysDate()" onload="teste()">
+<body onload="setTodaysDate()">
 
     <section class="navBarContainer" id="navBarContainer">
 
@@ -32,7 +32,7 @@
                 </li>
             </ul>
 
-            <div>
+            <div class="fixed">
                 <!-- In a real application, the user should log-in the app, and this should be the pic of her/his avatar -->
                 <img class="avatarPic" id="avatarPic" src="./img/avatar.jpg">
             </div>
@@ -132,11 +132,9 @@
 
                         <div class="assignedToArea" id="assignedToArea">
 
-                            <div class="avatarPicsArea">
-                                <div>
-                                    <img class="avatarAssigned" id="avatarPic" src="./img/avatarAtila.jpg">
-                                </div>
-                                <div>
+                            <div class="avatarPicsArea" id="avatarPicsArea">
+
+                                <div class="avatarPlusBtnContainer">
                                     <img class="avatarPlusBtn" id="avatarPic" src="./img/icon plus.png" onclick="displayAssignedToList()">
                                 </div>
                             </div>

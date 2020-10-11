@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgb(30, 49, 144);
-    height: 100vh;
+    height: 100%;
     width: 120px;
     font-family: 'PT Sans', sans-serif;
 }
@@ -74,9 +74,16 @@ h2 {
     margin: 28px;
 }
 
+.fixed {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+
 .addTaskPage {
     font-family: 'PT Sans', sans-serif;
     width: 100%;
+    margin-top: 30px;
 }
 
 .taskCreatorContainer {
@@ -420,6 +427,12 @@ h2 {
     background-color: rgb(225, 225, 225);
 }
 
+.avatarPlusBtnContainer {
+    display: flex;
+    height: 74px;
+    align-items: center;
+}
+
 @media (min-width: 521px) {
     .navBarMobile {
         display: none;
@@ -448,9 +461,6 @@ h2 {
         padding-bottom: 5px;
         top: 40px;
         z-index: 20;
-    }
-    .addTaskPage {
-        margin-top: 30px;
     }
     .taskCreator {
         flex-direction: column;

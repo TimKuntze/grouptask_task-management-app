@@ -22,12 +22,12 @@ let task;
 let users = [{
         'name': 'Átila Oliveira',
         'password': 'atilaspassword',
-        'pic': './img/avatarAtila.png',
+        'pic': './img/avatarAtila.jpg',
         'email': 'atila.oliveira.jr@gmail.com'
     },
     {
         'name': 'Hong Hanh Chu',
-        'pic': './img/Hong-Hanh.png',
+        'pic': './img/avatarHongHanh.jpg',
         'password': 'honghanhspassword',
         'email': 'hong.hanh.chu@gmail.com'
     },
@@ -49,6 +49,7 @@ let categoryValue;
 let descriptionValue;
 let dateValue;
 let urgencyValue;
+let assignedUsersAsString;
 
 
 /**
@@ -77,6 +78,7 @@ function createTaskJSON() {
     transformToString();
 
     /* Only for information */
+
     console.log(alltasks)
 
 }
@@ -105,6 +107,7 @@ function assignJSONToVariable() {
 
     } else {
         createATask();
+        console.log(selectedUsers);
         alltasks.push(task);
         resetPage();
         var alertID = 'taskCreatedAlert';
@@ -135,7 +138,7 @@ function createATask() {
         "status": `to do`,
         /* Next it will be created a databank of people that can be assigned for a task */
         /* Name, e-mail and avatar's pic */
-        "assigned": `responsablesArray`,
+        "assigned": `${assignedUsersAsString}`,
         "id": `${id}`
     };
 }
@@ -147,8 +150,9 @@ function createATask() {
 function resetPage() {
     document.getElementById('titleInput').value = ``;
     document.getElementById('categorySelector').value = `Select a category:`;
-    document.getElementById('taskDescription').value = ``
-    document.getElementById('urgencySelector').value = `Select the urgency:`
+    document.getElementById('taskDescription').value = ``;
+    document.getElementById('urgencySelector').value = `Select the urgency:`;
+    selectedUsers = [];
 
     setTodaysDate();
 }
@@ -181,22 +185,45 @@ function displayNavMobile() {
 
 }
 
+/**
+ * Displays the list of users that can be assigned to the task.
+ * @function
+ */
 function displayAssignedToList() {
     document.getElementById('assignedToList').classList.remove('dHide');
     document.getElementById('assignedToArea').classList.add('dHide');
     displayUsersList();
 }
 
+/**
+ * Displays the list of users that were assigned to the task.
+ * @function
+ */
 function assingendToConfirm() {
     document.getElementById('assignedToList').classList.add('dHide');
     document.getElementById('assignedToArea').classList.remove('dHide');
     document.getElementById('usersList').innerHTML = '';
-
+    document.getElementById('avatarPicsArea').innerHTML = '';
+    displayAssignedUsers();
+    assignedUsersAsString = JSON.stringify(selectedUsers);
 }
 
+function displayAssignedUsers() {
+    let html = '';
+    selectedUsers.forEach(function(user) {
+        html += `<div><img class="avatarAssigned" id="avatarPic" src="${user.pic}"></div>`
+    })
+    html += `<div><img class="avatarPlusBtn" id="avatarPic" src="./img/icon plus.png" onclick="displayAssignedToList()"></div>`;
+    document.getElementById('avatarPicsArea').insertAdjacentHTML('afterbegin', html);
+}
+
+/**
+ * Builds the list of available users that can be assigned to a task.
+ * @function
+ */
 function displayUsersList() {
     let html = '';
-    selectedUsers = '';
+    selectedUsers = [];
     users.forEach(function(user) {
         html += `<li class="" id="${user.name}" onclick="selectUser('${user.name}')" >${user.name}</li>`;
     })
@@ -206,6 +233,10 @@ function displayUsersList() {
     document.getElementById('usersList').insertAdjacentHTML('afterbegin', html);
 }
 
+/**
+ * Pushes the selected users to the array selectedUsers.
+ * @function
+ */
 function selectUser(userName) {
     let isSelected = document.getElementById(userName).classList.contains('userSelected');
 
