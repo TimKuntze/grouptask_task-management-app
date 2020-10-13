@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleLogin.css">
+    <script src="scriptLogIn.js" async></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <section class="mainContainer">
+        <div class="loginArea">
+
+            <head>
+                <h1>Welcome</h1>
+            </head>
+            <div class="inputContainer">
+                <div class="iconContainer">
+                    <img class="loginIcon" src="./img/loginIcon.png">
+                </div>
+                <div class="inputArea">
+                    <label class="userNameLabel">Username</label>
+                    <input type="text" placeholder="Type your username" class="userInput" id="userName">
+                </div>
+                <div class="inputArea">
+                    <label class="userNameLabel">Password</label>
+                    <input type="password" placeholder="Type your password" class="userInput" id="userPassword">
+                </div>
+
+                <div class="invalidDataAlert">
+                    <p class="exclamationMark transparent" id="exclamationMark">
+                        !
+                    </p>
+                    <p class="alert transparent" id="alert">
+                        Username or Password is incorrect.
+                    </p>
+                </div>
+
+                <div class="loginBtnContainer">
+                    <button class="loginBtn" id="loginBtn" onclick="login()">Login</button>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+</body>
+
+</html>

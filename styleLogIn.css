@@ -1,0 +1,133 @@
+body {
+    margin: 0px;
+    background-image: url('./img/backGround.jpg');
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0px;
+}
+
+.mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.loginArea {
+    width: 300px;
+    border-radius: 10px;
+    height: 400px;
+    background-color: white;
+}
+
+.inputContainer {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.userNameLabel {
+    font-size: 12px;
+}
+
+.userInput {
+    box-sizing: border-box;
+    width: 100%;
+    height: 30px;
+    border-style: none;
+    border-bottom: solid 1.5px rgb(223, 223, 223);
+    transition: border-bottom 0.4s ease-in-out;
+    font-size: 16px;
+}
+
+.userInput:focus {
+    outline: none;
+    font-size: 16px;
+    border-bottom: solid 1.5px black;
+}
+
+.userInput:focus::placeholder {
+    color: transparent;
+}
+
+.inputArea {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.loginIcon {
+    height: 60px;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.invalidDataAlert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.alert {
+    font-size: 12px;
+    color: red;
+}
+
+.exclamationMark {
+    background-color: red;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.loginBtnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.loginBtn {
+    width: 100%;
+    appearance: none;
+    border-style: none;
+    background-color: white;
+    border: solid 2px rgb(30, 49, 144);
+    color: rgb(30, 49, 144);
+    transition: background-color 0.4s ease-in-out;
+    transition: color 0.2s ease-in-out;
+    border-radius: 5px;
+    height: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.loginBtn:hover {
+    background-color: rgb(30, 49, 144);
+    color: white;
+}
+
+.transparent {
+    color: transparent;
+    background-color: transparent;
+}
