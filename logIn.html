@@ -19,7 +19,7 @@
             </head>
             <div class="inputContainer">
                 <div class="iconContainer">
-                    <img class="loginIcon" src="./img/loginIcon.png">
+                    <img class="loginIcon" id="loginIcon" src="./img/loginIcon.png">
                 </div>
                 <div class="inputArea">
                     <label class="userNameLabel">Username</label>
@@ -28,6 +28,10 @@
                 <div class="inputArea">
                     <label class="userNameLabel">Password</label>
                     <input type="password" placeholder="Type your password" class="userInput" id="userPassword">
+                </div>
+                <div class="rememberMeContainer">
+                    <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe" class="rememberMeLbl">Remember me</label>
+                    <!-- <input type="submit" value="Login" onclick="lsRememberMe()"> -->
                 </div>
 
                 <div class="invalidDataAlert">

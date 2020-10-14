@@ -35,6 +35,8 @@ function login() {
         document.getElementById('alert').classList.add('dHide');
     }
 
+    lsRememberMe();
+
 }
 
 var enterEventPassword = document.getElementById("userPassword");
@@ -54,3 +56,31 @@ enterEventUser.addEventListener("keyup", function(event) {
         document.getElementById("loginBtn").click();
     }
 });
+
+const rmCheck = document.getElementById("rememberMe");
+const rmUser = document.getElementById("userName");
+
+
+if (localStorage.checkbox && localStorage.checkbox !== "") {
+    rmCheck.setAttribute("checked", "checked");
+    rmUser.value = localStorage.username;
+
+    let userNameKey = u => u.userName === localStorage.username;
+    let temp = users.filter(userNameKey);
+
+    document.getElementById('loginIcon').src = temp[0].pic;
+    console.log(temp[0].pic);
+} else {
+    rmCheck.removeAttribute("checked");
+    rmUser.value = "";
+}
+
+function lsRememberMe() {
+    if (rmCheck.checked && rmUser.value !== "") {
+        localStorage.username = rmUser.value;
+        localStorage.checkbox = rmCheck.value;
+    } else {
+        localStorage.username = "";
+        localStorage.checkbox = "";
+    }
+}

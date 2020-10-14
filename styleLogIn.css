@@ -67,7 +67,10 @@ p {
 }
 
 .loginIcon {
-    height: 60px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 0px !important;
 }
 
 .iconContainer {
@@ -129,4 +132,13 @@ p {
 
 .dHide {
     display: none;
+}
+
+.rememberMeContainer {
+    display: flex;
+    align-items: center;
+}
+
+.rememberMeLbl {
+    font-size: 12px;
 }
