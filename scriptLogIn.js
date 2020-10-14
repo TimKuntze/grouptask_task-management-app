@@ -27,12 +27,12 @@ function login() {
     let userValidator = users.filter(userNameKey).filter(userPasswordKey);
 
     if (userValidator.length == 0) {
-        document.getElementById('exclamationMark').classList.remove('transparent');
-        document.getElementById('alert').classList.remove('transparent');
+        document.getElementById('exclamationMark').classList.remove('dHide');
+        document.getElementById('alert').classList.remove('dHide');
     } else {
         location.replace('./dashboard.html');
-        document.getElementById('exclamationMark').classList.add('transparent');
-        document.getElementById('alert').classList.add('transparent');
+        document.getElementById('exclamationMark').classList.add('dHide');
+        document.getElementById('alert').classList.add('dHide');
     }
 
 }

@@ -127,7 +127,6 @@ p {
     color: white;
 }
 
-.transparent {
-    color: transparent;
-    background-color: transparent;
+.dHide {
+    display: none;
 }

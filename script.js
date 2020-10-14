@@ -119,7 +119,7 @@ function assignJSONToVariable() {
  * @returns - Boolean True || Bollean False
  */
 function formIsValid() {
-    return !(titleValue != '' & categoryValue != 'Select a category:' & descriptionValue != '' & urgencyValue != 'Select the urgency:');
+    return !(titleValue != '' & categoryValue != 'Select a category:' & descriptionValue != '' & urgencyValue != 'Select the urgency:' & selectedUsers.length > 0);
 }
 
 /**
