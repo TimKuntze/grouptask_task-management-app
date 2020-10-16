@@ -75,7 +75,7 @@ function createTaskJSON() {
     id++
 
     /*transform JSON data to a string for local storage*/
-    transformToString();
+    addToLocalStorage(); 
 
     /* Only for information */
     console.log(alltasks)
