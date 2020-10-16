@@ -52,6 +52,7 @@
 
             <div class="dashboardColumn">
                 <p class="dashboardHeader">TO DO </p>
+                <img onclick="taskSorting()" class="filter-image" src="img/empty-filter-32.png">
 
                 <div class="todoColumn" id="todoColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
@@ -60,38 +61,24 @@
 
             <div class="dashboardColumn">
                 <p class="dashboardHeader">IN PROGRESS</p>
+                <img onclick="taskSorting()" class="filter-image" src="img/empty-filter-32.png">
+                <div class="inprogressColumn" id="inprogressColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
-                <div class="inprogressColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-                    <!---- <div class="inprogressTasks allTasks urgencyHigh" id="inprogressTasks">
-                        <div class="taskDate" id="taskDate">Datum</div>
-                        <div class="taskTitle" id="taskTitle">Title</div>
-                        <div class="taskDescription" id="taskDescription"><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione iste amet adipisci enim alias veritatis, tenetur corporis fugiat blanditiis necessitatibus, ipsum, vitae laborum ad distinctio? Necessitatibus quisquam ex eum
-                                pariatur.</span></div>
-                        <div class="taskCategory" id="taskCategory">Category</div>
-                    </div>-->
                 </div>
             </div>
 
             <div class="dashboardColumn">
                 <p class="dashboardHeader">TESTING</p>
+                <img onclick="taskSorting()" class="filter-image" src="img/empty-filter-32.png">
+                <div class="intestingColumn" id="intestingColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
-                <div class="testingColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-                    <!--<div class="testingTasks allTasks urgencyMedium" id="testingTasks">
-                        <div class="taskDate" id="taskDate">Datum</div>
-                        <div class="taskTitle" id="taskTitle">Title</div>
-                        <div class="taskDescription" id="taskDescription"><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione iste amet adipisci enim alias veritatis, tenetur corporis fugiat blanditiis necessitatibus, ipsum, vitae laborum ad distinctio? Necessitatibus quisquam ex eum
-                                pariatur.</span></div>
-                        <div class="taskCategory" id="taskCategory">Category</div>
-                    </div>-->
                 </div>
             </div>
 
             <div class="dashboardColumn">
                 <p class="dashboardHeader">DONE</p>
-
-                <div class="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img onclick="taskSorting()" class="filter-image" src="img/empty-filter-32.png">
+                <div class="doneColumn" id="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                     <!--<div class="doneTasks allTasks urgencyDone" id="doneTasks">
                         <div class="taskDate" id="taskDate">Datum</div>
