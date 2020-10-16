@@ -271,82 +271,345 @@ function selectUser(userName) {
 }
 
 
-/*Javascript for Dashboard - STILL IN PROGRESS*/
+//*JAVASCRIPT FOR DASHBOARD STARTS HERE - STILL IN PROGRESS
 
-/*JSON for testing purposes
-let testJSON = [{
-        "title": "TitleA",
-        "category": "CategoryA",
-        "description": "CategoryA",
-        "date": "DateA",
-        "urgency": "UrgencyA",
-    },
-    {
-        "title": "TitleB",
-        "category": "CategoryB",
-        "description": "CategoryB",
-        "date": "DateB",
-        "urgency": "UrgencyB",
-    },
-    {
-        "title": "TitleC",
-        "category": "CategoryC",
-        "description": "CategoryC",
-        "date": "DateC",
-        "urgency": "UrgencyC",
-    }
-];*/
+/**
+ * This array stores all the tasks pushed into the inProgress category.
+ * @Type - Array
+ */
+let inProgressTasks = [];
 
-/*Pushing filled task-JSON into dashboard*/
+/**
+ * This array stores all the tasks pushed into the inTesting category.
+ * @Type - Array
+ */
+let inTestingTasks = [];
 
+/**
+ * This array stores all the tasks pushed into the done category.
+ * @Type - Array
+ */
+let doneTasks = [];
+
+/**
+ * //*Displaying of ToDo Tasks.
+ * @function
+ */
 function displayTasks() {
-    transformToJSON();
+
+    //*Get ToDo item from local storage.
+    let alltasksAsString = localStorage.getItem('alltasks');
+    alltasks = JSON.parse(alltasksAsString);
+    if (alltasks == null) {
+        alltasks = [];
+    }
+
+    //*Clearing ToDo Column.
     document.getElementById('todoColumn').innerHTML = "";
+
+    //*Displaying of ToDo Tasks.
     for (let id = 0; id < alltasks.length; id++) {
 
         let listToDoTasks = `<div class="todoTasks allTasks ${alltasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
-        <div class="deleteTask" id="deleteTask"><img onclick="deleteTask()" src="img/x-mark-3-16.png"></div>
+        <div class="deleteTask" id="deleteTask"><img onclick="deleteToDoTask(${id})" src="img/x-mark-3-16.png"></div>
+        <div class="pushTask" id="pushTask"><img onclick="pushTaskToProgress(${id})" src="img/arrow-61-16.png"></div>
         <div class="taskDate" id="taskDate">${alltasks[id].date}</div>
         <div class="taskTitle" id="taskTitle">${alltasks[id].title}</div>
         <div class="taskDescription" id="taskDescription"><span>${alltasks[id].description}</span></div>
         <div class="taskCategory" id="taskCategory">${alltasks[id].category}</div>
         </div>`;
-
         document.getElementById('todoColumn').insertAdjacentHTML('beforeend', listToDoTasks);
     }
 }
 
-/*Deleting a task*/
+/**
+ * //*Displaying of InProgress Column
+ * @function
+ */
+function displayInProgress() {
 
-function deleteTask(id) {
-    alltasks.splice(id, 1);
+    //*Get InProgress item from local storage.
+    let inProgressAsString = localStorage.getItem('inProgressTasks');
+    inProgressTasks = JSON.parse(inProgressAsString);
+    if (inProgressTasks == null) {
+        inProgressTasks = [];
+    }
 
-}
+    //*Clearing InProgress Column.
+    document.getElementById('inprogressColumn').innerHTML = "";
 
-/*Adding a colored border to the dashboard tasks depending on the tasks urgency
+    //*Displaying of InProgress Tasks.
+    for (let id = 0; id < inProgressTasks.length; id++) {
 
-function addUrgencyColor() {
-
-    transformToJSON();
-
-    console.log(alltasks[id].urgency);
-
-    for (let id = 0; id < alltasks.length; id++) {
-        if (alltasks[id].urgency == 'Low') {
-            document.getElementById('todoTasks').classList.add('urgencyLow');
-        }
-        if (alltasks[id].urgency == 'Medium') {
-            document.getElementById('todoTasks').classList.add('urgencyMedium');
-        }
-        if (alltasks[id].urgency == 'High') {
-            document.getElementById('todoTasks').classList.add('urgencyHigh');
-        }
+        let listInProgressTasks = `<div class="todoTasks allTasks ${inProgressTasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
+        <div class="deleteTask" id="deleteTask"><img onclick="deleteInProgressTask(${id})" src="img/x-mark-3-16.png"></div>
+        <div class="pushTask" id="pushTask"><img onclick="pushTaskToInTesting(${id})" src="img/arrow-61-16.png"></div>
+        <div class="taskDate" id="taskDate">${inProgressTasks[id].date}</div>
+        <div class="taskTitle" id="taskTitle">${inProgressTasks[id].title}</div>
+        <div class="taskDescription" id="taskDescription"><span>${inProgressTasks[id].description}</span></div>
+        <div class="taskCategory" id="taskCategory">${inProgressTasks[id].category}</div>
+        </div>`;
+        document.getElementById('inprogressColumn').insertAdjacentHTML('beforeend', listInProgressTasks);
     }
 }
-*/
 
-/*Function for drag&drop of single tasks in dashboard*/
+/**
+ * //*Displaying of InTesting Column
+ * @function
+ */
+function displayInTesting() {
 
+    //*Get InTesting item from local storage.
+    let inTestingAsString = localStorage.getItem('inTestingTasks');
+    inTestingTasks = JSON.parse(inTestingAsString);
+    if (inTestingTasks == null) {
+        inTestingTasks = [];
+    }
+
+    //*Clearing InTesting Column.
+    document.getElementById('intestingColumn').innerHTML = "";
+
+    //*Displaying of InTesting Tasks.
+    for (let id = 0; id < inTestingTasks.length; id++) {
+
+        let listInTestingTasks = `<div class="todoTasks allTasks ${inTestingTasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
+        <div class="deleteTask" id="deleteTask"><img onclick="deleteInTestingTask(${id})" src="img/x-mark-3-16.png"></div>
+        <div class="pushTask" id="pushTask"><img onclick="pushTaskToDone(${id})" src="img/arrow-61-16.png"></div>
+        <div class="taskDate" id="taskDate">${inTestingTasks[id].date}</div>
+        <div class="taskTitle" id="taskTitle">${inTestingTasks[id].title}</div>
+        <div class="taskDescription" id="taskDescription"><span>${inTestingTasks[id].description}</span></div>
+        <div class="taskCategory" id="taskCategory">${inTestingTasks[id].category}</div>
+        </div>`;
+        document.getElementById('intestingColumn').insertAdjacentHTML('beforeend', listInTestingTasks);
+    }
+}
+
+/**
+ * //*Displaying of Done Column
+ * @function
+ */
+function displayDone() {
+
+    //*Get Done item from local storage.
+    let doneAsString = localStorage.getItem('doneTasks');
+    doneTasks = JSON.parse(doneAsString);
+    if (doneTasks == null) {
+        doneTasks = [];
+    }
+
+    //*Clearing Done Column.
+    document.getElementById('doneColumn').innerHTML = "";
+
+    //*Displaying of Done Tasks.
+    for (let id = 0; id < doneTasks.length; id++) {
+
+        let listDoneTasks = `<div class="todoTasks allTasks done" id="todoTasks" draggable="true" ondragstart="drag(event)">
+        <div class="deleteTask" id="deleteTask"><img onclick="deleteDoneTask(${id})" src="img/x-mark-3-16.png"></div>
+        <div class="taskDate" id="taskDate">${doneTasks[id].date}</div>
+        <div class="taskTitle" id="taskTitle">${doneTasks[id].title}</div>
+        <div class="taskDescription" id="taskDescription"><span>${doneTasks[id].description}</span></div>
+        <div class="taskCategory" id="taskCategory">${doneTasks[id].category}</div>
+        </div>`;
+        document.getElementById('doneColumn').insertAdjacentHTML('beforeend', listDoneTasks);
+    }
+}
+
+/**
+ * //*Deleting of a ToDo task.
+ * @function
+ */
+function deleteToDoTask(id) {
+
+    //*Get ToDo item from local storage.
+    let alltasksAsString = localStorage.getItem('alltasks');
+    alltasks = JSON.parse(alltasksAsString);
+    if (alltasks == null) {
+        alltasks = [];
+    }
+
+    //*Delete item from according array. 
+    alltasks.splice(id, 1);
+    addToLocalStorage();
+    displayTasks();
+}
+
+/**
+ * //*Deleting of an InProgress task.
+ * @function
+ */
+function deleteInProgressTask(id) {
+
+    //*Get InProgress item from local storage.
+    let inProgressAsString = localStorage.getItem('inProgressTasks');
+    inProgressTasks = JSON.parse(inProgressAsString);
+    if (inProgressTasks == null) {
+        inProgressTasks = [];
+    }
+
+    //*Delete item from according array. 
+    inProgressTasks.splice(id, 1);
+
+    //*Pushing InProgress array into local storage
+    inProgressAsString = JSON.stringify(inProgressTasks);
+    localStorage.setItem('inProgressTasks', inProgressAsString);
+
+    displayInProgress();
+    displayTasks();
+}
+
+/**
+ * //*Deleting of an InTesting task.
+ * @function
+ */
+function deleteInTestingTask(id) {
+
+    //*Get InProgress item from local storage.
+    let inTestingAsString = localStorage.getItem('inTestingTasks');
+    inTestingTasks = JSON.parse(inTestingAsString);
+    if (inTestingTasks == null) {
+        inTestingTasks = [];
+    }
+
+    //*Delete item from according array. 
+    inTestingTasks.splice(id, 1);
+
+    //*Pushing InProgress array into local storage
+    inTestingAsString = JSON.stringify(inTestingTasks);
+    localStorage.setItem('inTestingTasks', inTestingAsString);
+
+    displayInProgress();
+    displayInTesting();
+    displayTasks();
+}
+
+/**
+ * //*Deleting of a Done task.
+ * @function
+ */
+function deleteDoneTask(id) {
+
+    //*Get Done item from local storage.
+    let doneAsString = localStorage.getItem('doneTasks');
+    doneTasks = JSON.parse(doneAsString);
+    if (doneTasks == null) {
+        doneTasks = [];
+    }
+
+    //*Delete item from according array. 
+    doneTasks.splice(id, 1);
+
+    //*Pushing Done array into local storage
+    doneAsString = JSON.stringify(doneTasks);
+    localStorage.setItem('doneTasks', doneAsString);
+
+    displayInProgress();
+    displayInTesting();
+    displayTasks();
+    displayDone();
+}
+
+/**
+ * //*Pushing a ToDo Task into the InProgress Array.
+ * @function
+ */
+function pushTaskToProgress(id) {
+
+    //*Get ToDo item from local storage.
+    let alltasksAsString = localStorage.getItem('alltasks');
+    alltasks = JSON.parse(alltasksAsString);
+    if (alltasks == null) {
+        alltasks = [];
+    }
+
+    //*Pushing selected task into InProgress array
+    inProgressTasks.push(alltasks[id]);
+
+    //*Pushing InProgress array into local storage
+    let inProgressAsString = JSON.stringify(inProgressTasks);
+    localStorage.setItem('inProgressTasks', inProgressAsString);
+
+    //*Deleting of selected item from ToDo array and update
+    alltasks.splice(id, 1);
+    addToLocalStorage();
+    displayTasks();
+    displayInProgress();
+}
+
+/**
+ * //*Pushing a InProgress Task into the InTesting Array.
+ * @function
+ */
+function pushTaskToInTesting(id) {
+
+    //*Get InProgress item from local storage.
+    let inProgressAsString = localStorage.getItem('inProgressTasks');
+    inProgressTasks = JSON.parse(inProgressAsString);
+    if (inProgressTasks == null) {
+        inProgressTasks = [];
+    }
+
+    //*Pushing selected task into InTesting array
+    inTestingTasks.push(inProgressTasks[id]);
+
+    //*Pushing InTesting array into local storage
+    let inTestingAsString = JSON.stringify(inTestingTasks);
+    localStorage.setItem('inTestingTasks', inTestingAsString);
+
+    //*Deleting of selected item from InProgress array and update
+    inProgressTasks.splice(id, 1);
+
+    //*Pushing InProgress array into local storage
+    inProgressAsString = JSON.stringify(inProgressTasks);
+    localStorage.setItem('inProgressTasks', inProgressAsString);
+
+    addToLocalStorage();
+
+    displayTasks();
+    displayInProgress();
+    displayInTesting();
+}
+
+/**
+ * //*Pushing a InTesting Task into the Done Array.
+ * @function
+ */
+function pushTaskToDone(id) {
+
+    //*Get InTesting item from local storage.
+    let inTestingAsString = localStorage.getItem('inTestingTasks');
+    inTestingTasks = JSON.parse(inTestingAsString);
+    if (inTestingTasks == null) {
+        inTestingTasks = [];
+    }
+
+    //*Pushing selected task into Done array
+    doneTasks.push(inTestingTasks[id]);
+
+    //*Pushing Done array into local storage
+    let doneAsString = JSON.stringify(doneTasks);
+    localStorage.setItem('doneTasks', doneAsString);
+
+    //*Deleting of selected item from InTesting array and update
+    inTestingTasks.splice(id, 1);
+
+    //*Pushing InTesting array into local storage
+    inTestingAsString = JSON.stringify(inTestingTasks);
+    localStorage.setItem('inTestingTasks', inTestingAsString);
+
+
+
+    displayTasks();
+    displayInProgress();
+    displayInTesting();
+    displayDone();
+}
+
+
+
+/**
+ * //*Function for drag&drop of single tasks in dashboard
+ * @function
+ */
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -361,18 +624,22 @@ function drop(ev) {
     ev.target.appendChild(document.getElementById(data));
 }
 
-
-
-/*Function to stringify JSON for local storage*/
-
-function transformToString() {
+/**
+ * //*Function to put all tasks from Add Tasks into the local storage. 
+ * @function
+ */
+function addToLocalStorage() {
     let alltasksAsString = JSON.stringify(alltasks);
     localStorage.setItem('alltasks', alltasksAsString);
 }
 
-/*Function to de-stringify JSON*/
-
-function transformToJSON() {
+function taskSorting() {
     let alltasksAsString = localStorage.getItem('alltasks');
     alltasks = JSON.parse(alltasksAsString);
+
+    alltasks.sort(function(a, b) { return a - b });
+    console.log(alltasks);
+
+    addToLocalStorage();
+    displayTasks();
 }
