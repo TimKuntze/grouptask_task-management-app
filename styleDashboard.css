@@ -25,6 +25,10 @@ h2 {
     font-size: 12px;
 }
 
+.dHide {
+    display: none;
+}
+
 ul {
     list-style-type: none;
     margin: 0px;
@@ -253,4 +257,187 @@ ul {
     width: 15px;
     height: 15px;
     cursor: pointer;
+}
+
+.navBarMobile {
+    display: none;
+}
+
+.navListMobile {
+    display: none;
+}
+
+
+/* responisve section */
+
+@media(max-width: 1200px) {
+    .allTasks {
+        border-radius: 10px;
+        text-align: left !important;
+        width: 9em;
+        height: 5.5em;
+        padding: 8px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        position: relative;
+    }
+    .navBarMobile {
+        display: none;
+    }
+    .navListMobile {
+        display: none;
+    }
+}
+
+@media(max-width: 1100px) {
+    .allTasks {
+        border-radius: 10px;
+        text-align: left !important;
+        width: 15em;
+        height: 4.5em;
+        padding: 8px;
+        margin-bottom: 10px;
+        display: flex;
+        background-color: white;
+        position: relative;
+    }
+    .dashboardContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        height: 100vw;
+    }
+    .dashboardColumn {
+        margin-top: 25px;
+        border-radius: 10px;
+        background-color: rgb(244, 243, 251);
+        width: 25em;
+        overflow-y: none;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: unset;
+    }
+    .pushTask {
+        position: absolute;
+        top: 32px;
+        right: 12px;
+        cursor: pointer;
+        transform: rotate(90deg);
+    }
+    .dashboardContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 40px;
+        margin-right: 40px;
+        height: 100vh;
+    }
+    .navBarMobile {
+        display: none;
+    }
+    .navListMobile {
+        display: none;
+    }
+}
+
+@media (min-width: 640px) {
+    .navBarMobile {
+        display: none;
+    }
+    .navListMobile {
+        display: none;
+    }
+}
+
+@media(max-width: 640px) {
+    h2 {
+        margin-bottom: 10px;
+    }
+    .navBarMobile {
+        position: fixed;
+        padding: 5px;
+        top: 0px;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 30px;
+        background-color: rgb(30, 49, 144);
+    }
+    .navBarMobile img {
+        cursor: pointer;
+    }
+    .navListMobile {
+        position: fixed;
+        width: 100%;
+        padding: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        top: 40px;
+        z-index: 20;
+        color: white;
+        background-color: rgb(30, 49, 144);
+        font-family: 'PT Sans', sans-serif;
+        font-size: 20px;
+    }
+    .navListMobile li:hover {
+        cursor: pointer;
+        background-color: rgb(47, 63, 145);
+    }
+    .navBar {
+        display: none;
+    }
+    .allTasks {
+        border-radius: 10px;
+        text-align: left !important;
+        width: 15em;
+        height: 4.5em;
+        padding: 8px;
+        margin-bottom: 10px;
+        display: flex;
+        background-color: white;
+        position: relative;
+    }
+    .dashboardContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .dashboardColumn {
+        border-radius: 10px;
+        background-color: rgb(244, 243, 251);
+        width: 25em;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: none;
+    }
+    .pushTask {
+        position: absolute;
+        top: 32px;
+        right: 12px;
+        cursor: pointer;
+        transform: rotate(90deg);
+    }
+    .dashboardContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 40px;
+        margin-right: 40px;
+        height: 100vh;
+    }
+    h1 {
+        padding-left: 15px;
+        margin-bottom: 0px;
+        margin-top: 70px;
+    }
 }
