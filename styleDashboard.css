@@ -111,6 +111,7 @@ ul {
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    position: relative;
 }
 
 .dashboardHeader {
@@ -174,6 +175,23 @@ ul {
     cursor: pointer;
 }
 
+.pushTask {
+    position: absolute;
+    top: 32px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.avatar {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
 .taskDate {
     font-size: 11px;
     color: rgb(119, 118, 118);
@@ -219,10 +237,20 @@ ul {
     border-left: 16px solid rgb(238, 101, 101);
 }
 
-.urgencyDone {
+.done {
     border-left: 16px solid rgb(87, 175, 104);
+    filter: opacity(0.5);
 }
 
 .d-none {
     display: none;
+}
+
+.filter-image {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
 }
