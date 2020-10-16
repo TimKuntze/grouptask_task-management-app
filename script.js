@@ -633,13 +633,65 @@ function addToLocalStorage() {
     localStorage.setItem('alltasks', alltasksAsString);
 }
 
-function taskSorting() {
-    let alltasksAsString = localStorage.getItem('alltasks');
-    alltasks = JSON.parse(alltasksAsString);
+/**
+ * //*Function to sort ToDo tasks after the title. 
+ * @function
+ */
+function toDoSorting() {
 
-    alltasks.sort(function(a, b) { return a - b });
-    console.log(alltasks);
+    alltasks.sort(function(a, b) {
+        return a.title.localeCompare(b.title);
+    });
 
     addToLocalStorage();
     displayTasks();
+
+}
+
+/**
+ * //*Function to sort InProgress tasks after the title. 
+ * @function
+ */
+function inProgressSorting() {
+
+    inProgressTasks.sort(function(a, b) {
+        return a.title.localeCompare(b.title);
+    });
+
+
+    addToLocalStorage();
+
+    displayInProgress();
+
+}
+
+/**
+ * //*Function to sort inTesting tasks after the title. 
+ * @function
+ */
+function inTestingSorting() {
+
+    inTestingTasks.sort(function(a, b) {
+        return a.title.localeCompare(b.title);
+    });
+
+    addToLocalStorage();
+
+    displayInTesting();
+
+}
+
+/**
+ * //*Function to sort done tasks after the title. 
+ * @function
+ */
+function doneSorting() {
+
+    donetasks.sort(function(a, b) {
+        return a.title.localeCompare(b.title);
+    });
+
+    addToLocalStorage();
+
+    displayDone();
 }
