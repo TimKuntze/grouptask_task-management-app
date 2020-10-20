@@ -10,9 +10,11 @@
     <script src="script.js"></script>
 </head>
 
-<body onload="displayTasks()">
+<body onload="displayTasks(), displayInProgress(), displayInTesting(), displayDone()">
+
     <section class="navBarContainer" id="navBarContainer">
         <nav class="navBarMobile" id="navBarMobile">
+            <div class="navBarMobileLogo"><img src="./img/logo.png"></div>
             <img src="./img/icons8-menu-48.png" onclick="displayNavMobile()">
         </nav>
 
@@ -61,7 +63,7 @@
 
     </section>
 
-    <section class="dashboardPage" id="dashboard">
+    <section class="dashboardPage" id="dashboard" onclick="removeNavList()">
 
         <head>
             <h1 class="dashboardHead" id="dashboardHead">Dashboard</h1>
@@ -71,8 +73,17 @@
 
             <div class="dashboardColumn">
                 <p class="dashboardHeader">TO DO </p>
-                <img onclick="toDoSorting()" class="filter-image" src="img/empty-filter-32.png">
-
+                <div class="dropdown">
+                    <img onclick="dropdownToDo()" class="filter-image" src="img/empty-filter-32.png">
+                    <div id="sortingDropdownToDo" class="dropdown-content">
+                        <p class="dropdown-header">Sort by:</p>
+                        <a onclick="toDoSortingCategory()">Category</a>
+                        <a onclick="toDoSortingDate()">Date</a>
+                        <a onclick="toDoSortingTitle()">Title</a>
+                        <a onclick="toDoSortingUrgency()">Urgency</a>
+                        <a onclick="toDoSortingUser()">User</a>
+                    </div>
+                </div>
                 <div class="todoColumn" id="todoColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                 </div>
@@ -80,7 +91,17 @@
 
             <div class="dashboardColumn">
                 <p class="dashboardHeader">IN PROGRESS</p>
-                <img onclick="inProgressSorting()" class="filter-image" src="img/empty-filter-32.png">
+                <div class="dropdown">
+                    <img onclick="dropdownInProgress()" class="filter-image" src="img/empty-filter-32.png">
+                    <div id="sortingDropdownInProgress" class="dropdown-content">
+                        <p class="dropdown-header">Sort by:</p>
+                        <a onclick="inProgressSortingCategory()">Category</a>
+                        <a onclick="inProgressSortingDate()">Date</a>
+                        <a onclick="inProgressSortingTitle()">Title</a>
+                        <a onclick="inProgressSortingUrgency()">Urgency</a>
+                        <a onclick="inProgressSortingUser()">User</a>
+                    </div>
+                </div>
                 <div class="inprogressColumn" id="inprogressColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                 </div>
@@ -88,7 +109,18 @@
 
             <div class="dashboardColumn">
                 <p class="dashboardHeader">TESTING</p>
-                <img onclick="inTestingSorting()" class="filter-image" src="img/empty-filter-32.png">
+                <div class="dropdown">
+                    <img onclick="dropdownInTesting()" class="filter-image" src="img/empty-filter-32.png">
+                    <div id="sortingDropdownInTesting" class="dropdown-content">
+                        <p class="dropdown-header">Sort by:</p>
+                        <a onclick="inTestingSortingCategory()">Category</a>
+                        <a onclick="inTestingSortingDate()">Date</a>
+                        <a onclick="inTestingSortingTitle()">Title</a>
+                        <a onclick="inTestingSortingUrgency()">Urgency</a>
+                        <a onclick="inTestingSortingUser()">User</a>
+                    </div>
+                </div>
+
                 <div class="intestingColumn" id="intestingColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                 </div>
@@ -96,16 +128,20 @@
 
             <div class="dashboardColumn">
                 <p class="dashboardHeader">DONE</p>
-                <img onclick="doneSorting()" class="filter-image" src="img/empty-filter-32.png">
+                <div class="dropdown">
+                    <img onclick="dropdownDone()" class="filter-image" src="img/empty-filter-32.png">
+                    <div id="sortingDropdownDone" class="dropdown-content">
+                        <p class="dropdown-header">Sort by:</p>
+                        <a onclick="doneSortingCategory()">Category</a>
+                        <a onclick="doneSortingDate()">Date</a>
+                        <a onclick="doneSortingTitle()">Title</a>
+                        <a onclick="doneSortingUser()">User</a>
+                    </div>
+                </div>
+
                 <div class="doneColumn" id="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
-                    <!--<div class="doneTasks allTasks urgencyDone" id="doneTasks">
-                        <div class="taskDate" id="taskDate">Datum</div>
-                        <div class="taskTitle" id="taskTitle">Title</div>
-                        <div class="taskDescription" id="taskDescription"><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione iste amet adipisci enim alias veritatis, tenetur corporis fugiat blanditiis necessitatibus, ipsum, vitae laborum ad distinctio? Necessitatibus quisquam ex eum
-                                pariatur.</span></div>
-                        <div class="taskCategory" id="taskCategory">Category</div>
-                    </div>-->
+
                 </div>
             </div>
 
