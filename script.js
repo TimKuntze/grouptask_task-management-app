@@ -309,15 +309,16 @@ function displayTasks() {
 
     //*Displaying of ToDo Tasks.
     for (let id = 0; id < alltasks.length; id++) {
-
-        let listToDoTasks = `<div class="todoTasks allTasks ${alltasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
+        let avatarImage = JSON.parse(alltasks[id].assigned)[0].pic;
+        let listToDoTasks = `<div class="tasksContainer"><div class="todoTasks allTasks ${alltasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
         <div class="deleteTask" id="deleteTask"><img onclick="deleteToDoTask(${id})" src="img/x-mark-3-16.png"></div>
         <div class="pushTask" id="pushTask"><img onclick="pushTaskToProgress(${id})" src="img/arrow-61-16.png"></div>
+        <div class="avatar" id="avatar"><img src="${avatarImage}"></div>
         <div class="taskDate" id="taskDate">${alltasks[id].date}</div>
         <div class="taskTitle" id="taskTitle">${alltasks[id].title}</div>
         <div class="taskDescription" id="taskDescription"><span>${alltasks[id].description}</span></div>
         <div class="taskCategory" id="taskCategory">${alltasks[id].category}</div>
-        </div>`;
+        </div></div>`;
         document.getElementById('todoColumn').insertAdjacentHTML('beforeend', listToDoTasks);
     }
 }
@@ -340,10 +341,11 @@ function displayInProgress() {
 
     //*Displaying of InProgress Tasks.
     for (let id = 0; id < inProgressTasks.length; id++) {
-
+        let avatarImage = JSON.parse(inProgressTasks[id].assigned)[0].pic;
         let listInProgressTasks = `<div class="todoTasks allTasks ${inProgressTasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
         <div class="deleteTask" id="deleteTask"><img onclick="deleteInProgressTask(${id})" src="img/x-mark-3-16.png"></div>
         <div class="pushTask" id="pushTask"><img onclick="pushTaskToInTesting(${id})" src="img/arrow-61-16.png"></div>
+        <div class="avatar" id="avatar"><img src="${avatarImage}"></div>
         <div class="taskDate" id="taskDate">${inProgressTasks[id].date}</div>
         <div class="taskTitle" id="taskTitle">${inProgressTasks[id].title}</div>
         <div class="taskDescription" id="taskDescription"><span>${inProgressTasks[id].description}</span></div>
@@ -371,10 +373,11 @@ function displayInTesting() {
 
     //*Displaying of InTesting Tasks.
     for (let id = 0; id < inTestingTasks.length; id++) {
-
+        let avatarImage = JSON.parse(inTestingTasks[id].assigned)[0].pic;
         let listInTestingTasks = `<div class="todoTasks allTasks ${inTestingTasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
         <div class="deleteTask" id="deleteTask"><img onclick="deleteInTestingTask(${id})" src="img/x-mark-3-16.png"></div>
         <div class="pushTask" id="pushTask"><img onclick="pushTaskToDone(${id})" src="img/arrow-61-16.png"></div>
+        <div class="avatar" id="avatar"><img src="${avatarImage}"></div>
         <div class="taskDate" id="taskDate">${inTestingTasks[id].date}</div>
         <div class="taskTitle" id="taskTitle">${inTestingTasks[id].title}</div>
         <div class="taskDescription" id="taskDescription"><span>${inTestingTasks[id].description}</span></div>
@@ -402,9 +405,10 @@ function displayDone() {
 
     //*Displaying of Done Tasks.
     for (let id = 0; id < doneTasks.length; id++) {
-
+        let avatarImage = JSON.parse(doneTasks[id].assigned)[0].pic;
         let listDoneTasks = `<div class="todoTasks allTasks done" id="todoTasks" draggable="true" ondragstart="drag(event)">
         <div class="deleteTask" id="deleteTask"><img onclick="deleteDoneTask(${id})" src="img/x-mark-3-16.png"></div>
+        <div class="avatar" id="avatar"><img src="${avatarImage}"></div>
         <div class="taskDate" id="taskDate">${doneTasks[id].date}</div>
         <div class="taskTitle" id="taskTitle">${doneTasks[id].title}</div>
         <div class="taskDescription" id="taskDescription"><span>${doneTasks[id].description}</span></div>
@@ -634,10 +638,39 @@ function addToLocalStorage() {
 }
 
 /**
+ * //*Function to sort ToDo tasks after the category. 
+ * @function
+ */
+function toDoSortingCategory() {
+
+    alltasks.sort(function(a, b) {
+        return a.category.localeCompare(b.category);
+    });
+
+    addToLocalStorage();
+    displayTasks();
+}
+
+/**
+ * //*Function to sort ToDo tasks after the date. 
+ * @function
+ */
+function toDoSortingDate() {
+
+    alltasks.sort(function(a, b) {
+        return a.date.localeCompare(b.date);
+    });
+
+    addToLocalStorage();
+    displayTasks();
+
+}
+
+/**
  * //*Function to sort ToDo tasks after the title. 
  * @function
  */
-function toDoSorting() {
+function toDoSortingTitle() {
 
     alltasks.sort(function(a, b) {
         return a.title.localeCompare(b.title);
@@ -649,49 +682,383 @@ function toDoSorting() {
 }
 
 /**
- * //*Function to sort InProgress tasks after the title. 
+ * //*Function to sort ToDo tasks after the User. 
  * @function
  */
-function inProgressSorting() {
+function toDoSortingUser() {
+
+    alltasks.sort(function(a, b) {
+        return a.assigned.localeCompare(b.assigned);
+    });
+
+    addToLocalStorage();
+    displayTasks();
+
+}
+
+/**
+ * //*Function to sort ToDo tasks after the User. 
+ * @function
+ */
+function toDoSortingUrgency() {
+
+    alltasks.sort(function(a, b) {
+        return a.urgency.localeCompare(b.urgency);
+    });
+
+    addToLocalStorage();
+    displayTasks();
+
+}
+
+/**
+ * //*Function to sort InProgress tasks after the category. 
+ * @function
+ */
+function inProgressSortingCategory() {
 
     inProgressTasks.sort(function(a, b) {
-        return a.title.localeCompare(b.title);
+        return a.category.localeCompare(b.category);
     });
 
 
-    addToLocalStorage();
+    //*Pushing InProgress array into local storage
+    inProgressAsString = JSON.stringify(inProgressTasks);
+    localStorage.setItem('inProgressTasks', inProgressAsString);
 
     displayInProgress();
 
 }
 
 /**
- * //*Function to sort inTesting tasks after the title. 
+ * //*Function to sort InProgress tasks after the date. 
  * @function
  */
-function inTestingSorting() {
+function inProgressSortingDate() {
 
-    inTestingTasks.sort(function(a, b) {
+    inProgressTasks.sort(function(a, b) {
+        return a.date.localeCompare(b.date);
+    });
+
+
+    //*Pushing InProgress array into local storage
+    inProgressAsString = JSON.stringify(inProgressTasks);
+    localStorage.setItem('inProgressTasks', inProgressAsString);
+
+    displayInProgress();
+
+}
+
+/**
+ * //*Function to sort InProgress tasks after the title. 
+ * @function
+ */
+function inProgressSortingTitle() {
+
+    inProgressTasks.sort(function(a, b) {
         return a.title.localeCompare(b.title);
     });
 
-    addToLocalStorage();
+
+    //*Pushing InProgress array into local storage
+    inProgressAsString = JSON.stringify(inProgressTasks);
+    localStorage.setItem('inProgressTasks', inProgressAsString);
+
+    displayInProgress();
+
+}
+
+/**
+ * //*Function to sort InProgress tasks after the urgency. 
+ * @function
+ */
+function inProgressSortingUrgency() {
+
+    inProgressTasks.sort(function(a, b) {
+        return a.urgency.localeCompare(b.urgency);
+    });
+
+
+    //*Pushing InProgress array into local storage
+    inProgressAsString = JSON.stringify(inProgressTasks);
+    localStorage.setItem('inProgressTasks', inProgressAsString);
+
+    displayInProgress();
+
+}
+
+/**
+ * //*Function to sort InProgress tasks after the user. 
+ * @function
+ */
+function inProgressSortingUser() {
+
+    inProgressTasks.sort(function(a, b) {
+        return a.assigned.localeCompare(b.assigned);
+    });
+
+
+    //*Pushing InProgress array into local storage
+    inProgressAsString = JSON.stringify(inProgressTasks);
+    localStorage.setItem('inProgressTasks', inProgressAsString);
+
+    displayInProgress();
+
+}
+
+/**
+ * //*Function to sort InTesting tasks after the category. 
+ * @function
+ */
+function inTestingSortingCategory() {
+
+    inTestingTasks.sort(function(a, b) {
+        return a.category.localeCompare(b.category);
+    });
+
+
+    //*Pushing InTesting array into local storage
+    inTestingAsString = JSON.stringify(inTestingTasks);
+    localStorage.setItem('inTestingTasks', inTestingAsString);
 
     displayInTesting();
 
 }
 
 /**
- * //*Function to sort done tasks after the title. 
+ * //*Function to sort InTesting tasks after the date. 
  * @function
  */
-function doneSorting() {
+function inTestingSortingDate() {
 
-    donetasks.sort(function(a, b) {
+    inTestingTasks.sort(function(a, b) {
+        return a.date.localeCompare(b.date);
+    });
+
+
+    //*Pushing InTesting array into local storage
+    inTestingAsString = JSON.stringify(inTestingTasks);
+    localStorage.setItem('inTestingTasks', inTestingAsString);
+
+    displayInTesting();
+
+}
+
+/**
+ * //*Function to sort InTesting tasks after the title. 
+ * @function
+ */
+function inTestingSortingTitle() {
+
+    inTestingTasks.sort(function(a, b) {
         return a.title.localeCompare(b.title);
     });
 
-    addToLocalStorage();
+
+    //*Pushing InTesting array into local storage
+    inTestingAsString = JSON.stringify(inTestingTasks);
+    localStorage.setItem('inTestingTasks', inTestingAsString);
+
+    displayInTesting();
+
+}
+
+/**
+ * //*Function to sort InProgress tasks after the urgency. 
+ * @function
+ */
+function inTestingSortingUrgency() {
+
+    inTestingTasks.sort(function(a, b) {
+        return a.urgency.localeCompare(b.urgency);
+    });
+
+
+    //*Pushing InTesting array into local storage
+    inTestingAsString = JSON.stringify(inTestingTasks);
+    localStorage.setItem('inTestingTasks', inTestingAsString);
+
+    displayInTesting();
+
+}
+
+/**
+ * //*Function to sort InTesting tasks after the user. 
+ * @function
+ */
+function inTestingSortingUser() {
+
+    inTestingTasks.sort(function(a, b) {
+        return a.assigned.localeCompare(b.assigned);
+    });
+
+
+    //*Pushing InProgress array into local storage
+    inTestingAsString = JSON.stringify(inTestingTasks);
+    localStorage.setItem('inTestingTasks', inTestingAsString);
+
+    displayInTesting();
+
+}
+
+/**
+ * //*Function to sort done tasks after the category. 
+ * @function
+ */
+function doneSortingCategory() {
+
+    doneTasks.sort(function(a, b) {
+        return a.category.localeCompare(b.category);
+    });
+
+
+    //*Pushing done array into local storage
+    doneAsString = JSON.stringify(doneTasks);
+    localStorage.setItem('doneTasks', doneAsString);
 
     displayDone();
+
+}
+
+/**
+ * //*Function to sort done tasks after the date. 
+ * @function
+ */
+function doneSortingDate() {
+
+    doneTasks.sort(function(a, b) {
+        return a.date.localeCompare(b.date);
+    });
+
+
+    //*Pushing done array into local storage
+    doneAsString = JSON.stringify(doneTasks);
+    localStorage.setItem('doneTasks', doneAsString);
+
+    displayDone();
+
+}
+
+/**
+ * //*Function to sort InTesting tasks after the title. 
+ * @function
+ */
+function doneSortingTitle() {
+
+    doneTasks.sort(function(a, b) {
+        return a.title.localeCompare(b.title);
+    });
+
+
+    //*Pushing done array into local storage
+    doneAsString = JSON.stringify(doneTasks);
+    localStorage.setItem('doneTasks', doneAsString);
+
+    displayDone();
+
+}
+
+/**
+ * //*Function to sort done tasks after the user. 
+ * @function
+ */
+function doneSortingUser() {
+
+    doneTasks.sort(function(a, b) {
+        return a.assigned.localeCompare(b.assigned);
+    });
+
+
+    //*Pushing done array into local storage
+    doneAsString = JSON.stringify(doneTasks);
+    localStorage.setItem('doneTasks', doneAsString);
+
+    displayDone();
+
+}
+
+
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function dropdownToDo() {
+    document.getElementById("sortingDropdownToDo").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.filter-image')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function dropdownInProgress() {
+    document.getElementById("sortingDropdownInProgress").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.filter-image')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function dropdownInTesting() {
+    document.getElementById("sortingDropdownInTesting").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.filter-image')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function dropdownDone() {
+    document.getElementById("sortingDropdownDone").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.filter-image')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+function removeNavList() {
+    document.getElementById('navListMobile').classList.add('dHide');
 }
