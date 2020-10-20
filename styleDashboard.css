@@ -98,7 +98,7 @@ ul {
     justify-content: space-between;
     margin-left: 40px;
     margin-right: 40px;
-    height: 100vh;
+    height: 90vh;
 }
 
 .dashboardColumn {
@@ -109,7 +109,6 @@ ul {
     padding-bottom: 20px;
     background-color: rgb(244, 243, 251);
     width: 25%;
-    height: 80%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -172,7 +171,7 @@ ul {
     margin-bottom: 1em;
 }
 
-.deleteTask {
+.deleteTask img {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -186,14 +185,14 @@ ul {
     cursor: pointer;
 }
 
-.avatar {
+.avatar img {
     position: absolute;
-    bottom: 10px;
+    bottom: 11px;
     right: 10px;
-    width: 5px;
-    height: 5px;
+    z-index: 2;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    border: 2px solid white;
 }
 
 .taskDate {
@@ -204,6 +203,10 @@ ul {
 .taskTitle {
     font-size: 14px;
     font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 1.5em;
+    width: 9.5em;
 }
 
 .taskDescription {
@@ -211,6 +214,7 @@ ul {
     text-overflow: ellipsis;
     overflow: hidden;
     height: 2.5em;
+    width: 12em;
 }
 
 .taskCategory {
@@ -254,23 +258,50 @@ ul {
     position: absolute;
     right: 10px;
     top: 10px;
+    display: inline-block;
     width: 15px;
     height: 15px;
     cursor: pointer;
+    z-index: 3;
 }
 
-.navBarMobile {
+.dropdown-content {
     display: none;
+    position: absolute;
+    top: 4.3em;
+    right: 1.5em;
+    background-color: white;
+    font-size: small;
+    width: 10em;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 4;
 }
 
-.navListMobile {
-    display: none;
+.dropdown-content a {
+    color: black;
+    text-align: left;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(244, 243, 251);
+}
+
+.show {
+    display: block;
+}
+
+.dropdown-header {
+    color: rgb(30, 49, 144);
+    font-weight: bold;
 }
 
 
 /* responisve section */
 
-@media(max-width: 1200px) {
+@media(max-width: 1250px) {
     .allTasks {
         border-radius: 10px;
         text-align: left !important;
@@ -283,6 +314,24 @@ ul {
         background-color: white;
         position: relative;
     }
+    .taskDescription {
+        font-size: 11px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 2.5em;
+        width: 10em;
+    }
+    .taskTitle {
+        font-size: 14px;
+        font-weight: bold;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 1.5em;
+        width: 8em;
+    }
+}
+
+@media (min-width: 1131px) {
     .navBarMobile {
         display: none;
     }
@@ -291,11 +340,96 @@ ul {
     }
 }
 
-@media(max-width: 1100px) {
+@media(max-width: 1130px) {
+    h1 {
+        padding-left: 15px;
+        margin-bottom: 0px;
+        margin-top: 70px;
+    }
     .allTasks {
         border-radius: 10px;
         text-align: left !important;
-        width: 15em;
+        width: 9em;
+        height: 5.5em;
+        padding: 8px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        position: relative;
+    }
+    .taskDescription {
+        font-size: 11px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 2.5em;
+        width: 10em;
+    }
+    .taskTitle {
+        font-size: 14px;
+        font-weight: bold;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 1.5em;
+        width: 8em;
+    }
+    .navBar {
+        display: none;
+    }
+    .navBarMobile {
+        position: fixed;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        top: 0px;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 30px;
+        background-color: rgb(30, 49, 144);
+    }
+    .navBarMobile img {
+        cursor: pointer;
+    }
+    .navListMobile {
+        position: fixed;
+        width: 100%;
+        height: 15%;
+        padding: 0px;
+        padding-top: 15px;
+        padding-bottom: 5px;
+        top: 40px;
+        z-index: 20;
+        color: white;
+        background-color: rgb(30, 49, 144);
+        font-family: 'PT Sans', sans-serif;
+        font-size: 20px;
+        text-align: center;
+    }
+    .navListMobile li:hover {
+        cursor: pointer;
+        background-color: rgb(47, 63, 145);
+    }
+    .navBarMobileLogo img {
+        position: absolute;
+        width: 24px;
+        top: 2px;
+        left: 15px;
+        padding: 5px;
+    }
+}
+
+@media(max-width: 1000px) {
+    h1 {
+        padding-left: 15px;
+        margin-bottom: 0px;
+        margin-top: 70px;
+    }
+    .allTasks {
+        border-radius: 10px;
+        text-align: left !important;
+        width: 70vw;
         height: 4.5em;
         padding: 8px;
         margin-bottom: 10px;
@@ -315,12 +449,11 @@ ul {
         margin-top: 25px;
         border-radius: 10px;
         background-color: rgb(244, 243, 251);
-        width: 25em;
-        overflow-y: none;
+        width: 95%;
         display: flex;
         flex-direction: column;
         position: relative;
-        height: unset;
+        overflow-y: unset;
     }
     .pushTask {
         position: absolute;
@@ -337,30 +470,13 @@ ul {
         margin-right: 40px;
         height: 100vh;
     }
-    .navBarMobile {
+    .navBar {
         display: none;
-    }
-    .navListMobile {
-        display: none;
-    }
-}
-
-@media (min-width: 640px) {
-    .navBarMobile {
-        display: none;
-    }
-    .navListMobile {
-        display: none;
-    }
-}
-
-@media(max-width: 640px) {
-    h2 {
-        margin-bottom: 10px;
     }
     .navBarMobile {
         position: fixed;
-        padding: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         top: 0px;
         z-index: 20;
         display: flex;
@@ -376,8 +492,9 @@ ul {
     .navListMobile {
         position: fixed;
         width: 100%;
+        height: 15%;
         padding: 0px;
-        padding-top: 5px;
+        padding-top: 15px;
         padding-bottom: 5px;
         top: 40px;
         z-index: 20;
@@ -385,18 +502,38 @@ ul {
         background-color: rgb(30, 49, 144);
         font-family: 'PT Sans', sans-serif;
         font-size: 20px;
+        text-align: center;
     }
     .navListMobile li:hover {
         cursor: pointer;
         background-color: rgb(47, 63, 145);
     }
-    .navBar {
-        display: none;
+    .taskDescription {
+        font-size: 11px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 1em;
+        width: 58vw;
+    }
+    .navBarMobileLogo img {
+        position: absolute;
+        width: 24px;
+        top: 2px;
+        left: 15px;
+        padding: 5px;
+    }
+}
+
+@media(max-width: 640px) {
+    h1 {
+        padding-left: 15px;
+        margin-bottom: 0px;
+        margin-top: 70px;
     }
     .allTasks {
         border-radius: 10px;
         text-align: left !important;
-        width: 15em;
+        width: 50vw;
         height: 4.5em;
         padding: 8px;
         margin-bottom: 10px;
@@ -410,15 +547,17 @@ ul {
         justify-content: space-between;
         margin-top: 40px;
         margin-bottom: 40px;
+        height: 100vw;
     }
     .dashboardColumn {
+        margin-top: 25px;
         border-radius: 10px;
         background-color: rgb(244, 243, 251);
-        width: 25em;
+        width: 95%;
         display: flex;
         flex-direction: column;
         position: relative;
-        height: none;
+        overflow-y: unset;
     }
     .pushTask {
         position: absolute;
@@ -435,9 +574,56 @@ ul {
         margin-right: 40px;
         height: 100vh;
     }
-    h1 {
-        padding-left: 15px;
-        margin-bottom: 0px;
-        margin-top: 70px;
+    .navBar {
+        display: none;
+    }
+    .navBarMobile {
+        position: fixed;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        top: 0px;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 30px;
+        background-color: rgb(30, 49, 144);
+    }
+    .navBarMobile img {
+        cursor: pointer;
+    }
+    .navListMobile {
+        position: fixed;
+        width: 100%;
+        height: 15%;
+        padding: 0px;
+        padding-top: 15px;
+        padding-bottom: 5px;
+        top: 40px;
+        z-index: 20;
+        color: white;
+        background-color: rgb(30, 49, 144);
+        font-family: 'PT Sans', sans-serif;
+        font-size: 20px;
+        text-align: center;
+    }
+    .navListMobile li:hover {
+        cursor: pointer;
+        background-color: rgb(47, 63, 145);
+    }
+    .taskDescription {
+        font-size: 11px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 1em;
+        width: 42vw;
+    }
+    .navBarMobileLogo img {
+        position: absolute;
+        width: 24px;
+        top: 2px;
+        left: 15px;
+        padding: 5px;
     }
 }
