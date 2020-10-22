@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styleDashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <script src="script.js"></script>
+    <script src="templates/task.done.template.js"></script>
+
 </head>
 
 <body onload="displayTasks(), displayInProgress(), displayInTesting(), displayDone()">
@@ -74,7 +76,12 @@
             <div class="dashboardColumn">
                 <p class="dashboardHeader">TO DO </p>
                 <div class="dropdown">
-                    <img onclick="dropdownToDo()" class="filter-image" src="img/empty-filter-32.png">
+                    <div class="tooltip">
+                        <img onclick="dropdownToDo()" class="filter-image" src="img/empty-filter-32.png">
+                        <span class="tooltiptext-sort">Sort tasks</span>
+                    </div>
+
+
                     <div id="sortingDropdownToDo" class="dropdown-content">
                         <p class="dropdown-header">Sort by:</p>
                         <a onclick="toDoSortingCategory()">Category</a>
@@ -92,7 +99,10 @@
             <div class="dashboardColumn">
                 <p class="dashboardHeader">IN PROGRESS</p>
                 <div class="dropdown">
-                    <img onclick="dropdownInProgress()" class="filter-image" src="img/empty-filter-32.png">
+                    <div class="tooltip">
+                        <img onclick="dropdownInProgress()" class="filter-image" src="img/empty-filter-32.png">
+                        <span class="tooltiptext-sort">Sort tasks</span>
+                    </div>
                     <div id="sortingDropdownInProgress" class="dropdown-content">
                         <p class="dropdown-header">Sort by:</p>
                         <a onclick="inProgressSortingCategory()">Category</a>
@@ -110,7 +120,10 @@
             <div class="dashboardColumn">
                 <p class="dashboardHeader">TESTING</p>
                 <div class="dropdown">
-                    <img onclick="dropdownInTesting()" class="filter-image" src="img/empty-filter-32.png">
+                    <div class="tooltip">
+                        <img onclick="dropdownInTesting()" class="filter-image" src="img/empty-filter-32.png">
+                        <span class="tooltiptext-sort">Sort tasks</span>
+                    </div>
                     <div id="sortingDropdownInTesting" class="dropdown-content">
                         <p class="dropdown-header">Sort by:</p>
                         <a onclick="inTestingSortingCategory()">Category</a>
@@ -129,7 +142,10 @@
             <div class="dashboardColumn">
                 <p class="dashboardHeader">DONE</p>
                 <div class="dropdown">
-                    <img onclick="dropdownDone()" class="filter-image" src="img/empty-filter-32.png">
+                    <div class="tooltip">
+                        <img onclick="dropdownDone()" class="filter-image" src="img/empty-filter-32.png">
+                        <span class="tooltiptext-sort">Sort tasks</span>
+                    </div>
                     <div id="sortingDropdownDone" class="dropdown-content">
                         <p class="dropdown-header">Sort by:</p>
                         <a onclick="doneSortingCategory()">Category</a>
