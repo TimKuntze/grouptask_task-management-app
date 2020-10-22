@@ -310,15 +310,19 @@ function displayTasks() {
     //*Displaying of ToDo Tasks.
     for (let id = 0; id < alltasks.length; id++) {
         let avatarImage = JSON.parse(alltasks[id].assigned)[0].pic;
-        let listToDoTasks = `<div class="tasksContainer"><div class="todoTasks allTasks ${alltasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
+        let avatarName = JSON.parse(alltasks[id].assigned)[0].name;
+        let listToDoTasks = `<div class="todoTasks allTasks ${alltasks[id].urgency} id="todoTasks" draggable="true" ondragstart="drag(event)">
         <div class="deleteTask" id="deleteTask"><img onclick="deleteToDoTask(${id})" src="img/x-mark-3-16.png"></div>
         <div class="pushTask" id="pushTask"><img onclick="pushTaskToProgress(${id})" src="img/arrow-61-16.png"></div>
+        <div class="tooltip">
         <div class="avatar" id="avatar"><img src="${avatarImage}"></div>
+        <span class="tooltiptext-name">${avatarName}</span>
+        </div>
         <div class="taskDate" id="taskDate">${alltasks[id].date}</div>
         <div class="taskTitle" id="taskTitle">${alltasks[id].title}</div>
         <div class="taskDescription" id="taskDescription"><span>${alltasks[id].description}</span></div>
         <div class="taskCategory" id="taskCategory">${alltasks[id].category}</div>
-        </div></div>`;
+        </div>`;
         document.getElementById('todoColumn').insertAdjacentHTML('beforeend', listToDoTasks);
     }
 }
@@ -342,10 +346,14 @@ function displayInProgress() {
     //*Displaying of InProgress Tasks.
     for (let id = 0; id < inProgressTasks.length; id++) {
         let avatarImage = JSON.parse(inProgressTasks[id].assigned)[0].pic;
+        let avatarName = JSON.parse(inProgressTasks[id].assigned)[0].name;
         let listInProgressTasks = `<div class="todoTasks allTasks ${inProgressTasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
         <div class="deleteTask" id="deleteTask"><img onclick="deleteInProgressTask(${id})" src="img/x-mark-3-16.png"></div>
         <div class="pushTask" id="pushTask"><img onclick="pushTaskToInTesting(${id})" src="img/arrow-61-16.png"></div>
+        <div class="tooltip">
         <div class="avatar" id="avatar"><img src="${avatarImage}"></div>
+        <span class="tooltiptext-name">${avatarName}</span>
+        </div>
         <div class="taskDate" id="taskDate">${inProgressTasks[id].date}</div>
         <div class="taskTitle" id="taskTitle">${inProgressTasks[id].title}</div>
         <div class="taskDescription" id="taskDescription"><span>${inProgressTasks[id].description}</span></div>
@@ -374,10 +382,14 @@ function displayInTesting() {
     //*Displaying of InTesting Tasks.
     for (let id = 0; id < inTestingTasks.length; id++) {
         let avatarImage = JSON.parse(inTestingTasks[id].assigned)[0].pic;
+        let avatarName = JSON.parse(inTestingTasks[id].assigned)[0].name;
         let listInTestingTasks = `<div class="todoTasks allTasks ${inTestingTasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
         <div class="deleteTask" id="deleteTask"><img onclick="deleteInTestingTask(${id})" src="img/x-mark-3-16.png"></div>
         <div class="pushTask" id="pushTask"><img onclick="pushTaskToDone(${id})" src="img/arrow-61-16.png"></div>
+        <div class="tooltip">
         <div class="avatar" id="avatar"><img src="${avatarImage}"></div>
+        <span class="tooltiptext-name">${avatarName}</span>
+        </div>
         <div class="taskDate" id="taskDate">${inTestingTasks[id].date}</div>
         <div class="taskTitle" id="taskTitle">${inTestingTasks[id].title}</div>
         <div class="taskDescription" id="taskDescription"><span>${inTestingTasks[id].description}</span></div>
@@ -405,15 +417,8 @@ function displayDone() {
 
     //*Displaying of Done Tasks.
     for (let id = 0; id < doneTasks.length; id++) {
-        let avatarImage = JSON.parse(doneTasks[id].assigned)[0].pic;
-        let listDoneTasks = `<div class="todoTasks allTasks done" id="todoTasks" draggable="true" ondragstart="drag(event)">
-        <div class="deleteTask" id="deleteTask"><img onclick="deleteDoneTask(${id})" src="img/x-mark-3-16.png"></div>
-        <div class="avatar" id="avatar"><img src="${avatarImage}"></div>
-        <div class="taskDate" id="taskDate">${doneTasks[id].date}</div>
-        <div class="taskTitle" id="taskTitle">${doneTasks[id].title}</div>
-        <div class="taskDescription" id="taskDescription"><span>${doneTasks[id].description}</span></div>
-        <div class="taskCategory" id="taskCategory">${doneTasks[id].category}</div>
-        </div>`;
+
+        let listDoneTasks = generateTask(doneTasks[id]);
         document.getElementById('doneColumn').insertAdjacentHTML('beforeend', listDoneTasks);
     }
 }
