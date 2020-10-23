@@ -10,7 +10,7 @@
     <script src="script.js"></script>
 </head>
 
-<body onload="setTodaysDate()">
+<body onload="setTodaysDate(), updateUserPic()">
     <section class="navBarContainer" id="navBarContainer">
 
         <nav class="navBar" id="navBar">
@@ -32,7 +32,6 @@
             </ul>
 
             <div class="fixed">
-                <!-- In a real application, the user should log-in the app, and this should be the pic of her/his avatar -->
                 <img class="avatarPic" id="userPic" src="./img/avatar.jpg">
             </div>
 

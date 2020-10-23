@@ -62,7 +62,9 @@ let assignedUsersAsString;
 function setTodaysDate() {
     let today = new Date().toISOString().substr(0, 10);
     document.querySelector("#dateInput").value = today;
+}
 
+function updateUserPic() {
     let userPic = u => u.userName === localStorage.username;
     let loginPic = users.filter(userPic);
     document.getElementById('userPic').src = loginPic[0].pic;
