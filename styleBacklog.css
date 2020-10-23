@@ -111,7 +111,7 @@ ul {
     bottom: 93vh;
 }
 
-.assign-task-1 {
+.assign-task{
     position: absolute;
     top: 18vh;
     display: flex;
@@ -122,45 +122,6 @@ ul {
     padding-right: 77vw;
     border-radius: 10px;
     border-left: 16px solid rgb(254, 176, 112);
-}
-
-.assign-task-2 {
-    position: absolute;
-    top: 36vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(244, 243, 251);
-    padding: 28px;
-    padding-right: 77vw;
-    border-radius: 10px;
-    border-left: 16px solid rgb(226, 112, 255);
-}
-
-.assign-task-3 {
-    position: absolute;
-    top: 54vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(244, 243, 251);
-    padding: 28px;
-    padding-right: 77vw;
-    border-radius: 10px;
-    border-left: 16px solid rgb(87, 175, 104);
-}
-
-.assign-task-4 {
-    position: absolute;
-    top: 72vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(244, 243, 251);
-    padding: 28px;
-    padding-right: 77vw;
-    border-radius: 10px;
-    border-left: 16px solid rgb(0, 255, 204);
 }
 
 .assign-picture {
@@ -204,67 +165,19 @@ input:focus {
     outline: none;
 }
 
-input[id="name-1"]::-webkit-input-placeholder {
+input[id="name${id}"]::-webkit-input-placeholder {
     color: black;
 }
 
-input[id="email-1"]::-webkit-input-placeholder {
+input[id="email${id}"]::-webkit-input-placeholder {
     color: rgb(141, 165, 251);
 }
 
-input[id="category-1"]::-webkit-input-placeholder {
+input[id="category${id}"]::-webkit-input-placeholder {
     color: black;
 }
 
-input[id="details-1"]::-webkit-input-placeholder {
-    color: black;
-}
-
-input[id="name-2"]::-webkit-input-placeholder {
-    color: black;
-}
-
-input[id="email-2"]::-webkit-input-placeholder {
-    color: rgb(141, 165, 251);
-}
-
-input[id="category-2"]::-webkit-input-placeholder {
-    color: black;
-}
-
-input[id="details-2"]::-webkit-input-placeholder {
-    color: black;
-}
-
-input[id="name-3"]::-webkit-input-placeholder {
-    color: black;
-}
-
-input[id="email-3"]::-webkit-input-placeholder {
-    color: rgb(141, 165, 251);
-}
-
-input[id="category-3"]::-webkit-input-placeholder {
-    color: black;
-}
-
-input[id="details-4"]::-webkit-input-placeholder {
-    color: black;
-}
-
-input[id="name-4"]::-webkit-input-placeholder {
-    color: black;
-}
-
-input[id="email-4"]::-webkit-input-placeholder {
-    color: rgb(141, 165, 251);
-}
-
-input[id="category-4"]::-webkit-input-placeholder {
-    color: black;
-}
-
-input[id="details-4"]::-webkit-input-placeholder {
+input[id="details${id}"]::-webkit-input-placeholder {
     color: black;
 }
 

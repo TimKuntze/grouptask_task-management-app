@@ -9,7 +9,7 @@
     <script src="backlog.js"></script>
 </head>
 
-<body>
+<body onload="displayBacklog()">
     <section class="navBarContainer" id="navBarContainer">
 
         <nav class="navBar" id="navBar">
@@ -59,123 +59,7 @@
 
         </div>
 
-        <div class="assign-container">
-
-            <div class="assign-task-1">
-
-                <img class="assign-picture" src="img/Hong-Hanh.png">
-
-
-                <div class="backlog-name-input">
-
-                    <input id="name-1" placeholder="Name">
-                    <input id="email-1" placeholder="@mail">
-
-
-                </div>
-
-
-                <div class="backlog-category-input"> <input id="category-1" placeholder="Category"> </div>
-
-                <div class="backlog-details-input"> <input id="details-1" placeholder="Details">
-                </div>
-
-
-                <button class="add-btn" onclick="addTask()"> + </button>
-
-            </div>
-
-            <div class="assign-task-2">
-
-                <img class="assign-picture" src="img/avatarAtila.jpg">
-
-
-                <div class="backlog-name-input">
-
-                    <input id="name-2" placeholder="Name">
-                    <input id="email-3" placeholder="@mail">
-
-
-                </div>
-
-
-                <div class="backlog-category-input"> <input id="category-2" placeholder="Category"> </div>
-
-                <div class="backlog-details-input"> <input id="details-2" placeholder="Details">
-                </div>
-
-            </div>
-
-            <div class="assign-task-3">
-
-                <img class="assign-picture" src="img/TimKuntze.jpg">
-
-
-                <div class="backlog-name-input">
-
-                    <input id="name-3" placeholder="Name">
-                    <input id="email-3" placeholder="@mail">
-
-
-                </div>
-
-
-                <div class="backlog-category-input"> <input id="category-3" placeholder="Category"> </div>
-
-                <div class="backlog-details-input"> <input id="details-3" placeholder="Details">
-
-                </div>
-
-                
-
-            </div>
-            <div class="assign-task-2">
-
-                <img class="assign-picture" src="img/avatarAtila.jpg">
-
-
-                <div class="backlog-name-input">
-
-                    <input id="name-2" placeholder="Name">
-                    <input id="email-2" placeholder="@mail">
-
-
-                </div>
-
-
-                <div class="backlog-category-input"> <input id="category-2" placeholder="Category"> </div>
-
-                <div class="backlog-details-input"> <input id="details-2" placeholder="Details">
-
-                </div>
-
-            </div>
-
-
-
-
-            <div class="assign-task-4">
-
-                <img class="assign-picture" src="img/JunusErgin.jpg">
-
-
-                <div class="backlog-name-input">
-
-                    <input id="name-4" placeholder="Name">
-                    <input id="email-4" placeholder="@mail">
-
-
-                </div>
-
-
-                <div class="backlog-category-input"> <input id="category-4" placeholder="Category"> </div>
-
-                <div class="backlog-details-input"> <input id="details-4" placeholder="Details">
-
-                </div>
-
-
-            </div>
+        <div class="assign-container" id="assign-container">
 
         </div>
 
