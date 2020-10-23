@@ -30,13 +30,17 @@ function login() {
         document.getElementById('exclamationMark').classList.remove('dHide');
         document.getElementById('alert').classList.remove('dHide');
     } else {
-        location.replace('./dashboard.html');
+        redirect();
         document.getElementById('exclamationMark').classList.add('dHide');
         document.getElementById('alert').classList.add('dHide');
     }
 
     lsRememberMe();
 
+}
+
+function redirect() {
+    location.href = './dashboard.html';
 }
 
 var enterEventPassword = document.getElementById("userPassword");

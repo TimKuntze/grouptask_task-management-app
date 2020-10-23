@@ -448,7 +448,8 @@ h2 {
     }
     .navBarMobile {
         position: fixed;
-        padding: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         top: 0px;
         z-index: 20;
     }
