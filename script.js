@@ -21,19 +21,23 @@ let task;
  */
 let users = [{
         'name': 'Átila Oliveira',
-        'password': 'atilaspassword',
+        'userName': 'Oliveira',
+        'password': '123',
         'pic': './img/avatarAtila.jpg',
         'email': 'atila.oliveira.jr@gmail.com'
     },
     {
         'name': 'Hong Hanh Chu',
+        'userName': 'Chu',
         'pic': './img/avatarHongHanh.jpg',
         'password': 'honghanhspassword',
         'email': 'hong.hanh.chu@gmail.com'
     },
     {
         'name': 'Tim Kuntze',
+        'userName': 'Kuntze',
         'pic': './img/TimKuntze.jpg',
+        'password': 'timkuntzepassword',
         'email': 'tim.kuntze@gmail.com'
     }
 ];
@@ -51,7 +55,6 @@ let dateValue;
 let urgencyValue;
 let assignedUsersAsString;
 
-
 /**
  * Pre-sets the input 'Due Date' to the current date.
  * @function
@@ -59,6 +62,10 @@ let assignedUsersAsString;
 function setTodaysDate() {
     let today = new Date().toISOString().substr(0, 10);
     document.querySelector("#dateInput").value = today;
+
+    let userPic = u => u.userName === localStorage.username;
+    let loginPic = users.filter(userPic);
+    document.getElementById('userPic').src = loginPic[0].pic;
 }
 
 /**
@@ -113,6 +120,7 @@ function assignJSONToVariable() {
 
     }
 }
+
 /**
  * Validates if the form is filled out.
  * @function
@@ -134,8 +142,6 @@ function createATask() {
         "date": `${dateValue}`,
         "urgency": `${urgencyValue}`,
         "status": `to do`,
-        /* Next it will be created a databank of people that can be assigned for a task */
-        /* Name, e-mail and avatar's pic */
         "assigned": `${assignedUsersAsString}`,
         "id": `${id}`
     };
@@ -206,6 +212,8 @@ function displayAssignedToList() {
     displayUsersList();
 }
 
+
+
 /**
  * Displays the list of users that were assigned to the task.
  * @function
@@ -269,7 +277,6 @@ function selectUser(userName) {
         selectedUsers.splice(removed, 1);
     }
 }
-
 
 //*JAVASCRIPT FOR DASHBOARD STARTS HERE - STILL IN PROGRESS
 

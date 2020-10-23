@@ -30,17 +30,13 @@ function login() {
         document.getElementById('exclamationMark').classList.remove('dHide');
         document.getElementById('alert').classList.remove('dHide');
     } else {
-        redirect();
+        location.href = './dashboard.html';
         document.getElementById('exclamationMark').classList.add('dHide');
         document.getElementById('alert').classList.add('dHide');
     }
 
     lsRememberMe();
 
-}
-
-function redirect() {
-    location.href = './dashboard.html';
 }
 
 var enterEventPassword = document.getElementById("userPassword");
@@ -70,10 +66,9 @@ if (localStorage.checkbox && localStorage.checkbox !== "") {
     rmUser.value = localStorage.username;
 
     let userNameKey = u => u.userName === localStorage.username;
-    let temp = users.filter(userNameKey);
+    let loginPic = users.filter(userNameKey);
 
-    document.getElementById('loginIcon').src = temp[0].pic;
-    console.log(temp[0].pic);
+    document.getElementById('loginIcon').src = loginPic[0].pic;
 } else {
     rmCheck.removeAttribute("checked");
     rmUser.value = "";
