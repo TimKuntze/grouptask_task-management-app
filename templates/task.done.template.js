@@ -1,7 +1,7 @@
 function generateTask(task) {
     let avatarImage = JSON.parse(task.assigned)[0].pic;
     let avatarName = JSON.parse(task.assigned)[0].name;
-    return `<div class="todoTasks allTasks done" id="todoTasks" draggable="true" ondragstart="drag(event)">
+    return `<div class="todoTasks allTasks done" id="todoTasks${id}" draggable="true" ondragstart="drag(event)">
         <div class="deleteTask" id="deleteTask"><img onclick="deleteDoneTask()" src="img/x-mark-3-16.png"></div>
         <div class="tooltip">
         <div class="avatar" id="avatar"><img src="${avatarImage}"></div>

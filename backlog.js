@@ -34,4 +34,8 @@ function transformToJSON() {
 
 function loadTasksFromLocalStorage() {
     allTasks = JSON.parse(localStorage.getItem('allTasks'));
+
+    if (allTasks == null) {
+        allTasks = [];
+    }
 }

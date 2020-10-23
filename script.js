@@ -75,7 +75,7 @@ function createTaskJSON() {
     id++
 
     /*transform JSON data to a string for local storage*/
-    addToLocalStorage(); 
+    addToLocalStorage();
 
     /* Only for information */
     console.log(alltasks)
@@ -311,7 +311,7 @@ function displayTasks() {
     for (let id = 0; id < alltasks.length; id++) {
         let avatarImage = JSON.parse(alltasks[id].assigned)[0].pic;
         let avatarName = JSON.parse(alltasks[id].assigned)[0].name;
-        let listToDoTasks = `<div class="todoTasks allTasks ${alltasks[id].urgency} id="todoTasks" draggable="true" ondragstart="drag(event)">
+        let listToDoTasks = `<div class="todoTasks allTasks ${alltasks[id].urgency} id="todoTasks${id}" draggable="true" ondragstart="drag(event)">
         <div class="deleteTask" id="deleteTask"><img onclick="deleteToDoTask(${id})" src="img/x-mark-3-16.png"></div>
         <div class="pushTask" id="pushTask"><img onclick="pushTaskToProgress(${id})" src="img/arrow-61-16.png"></div>
         <div class="tooltip">
@@ -383,7 +383,7 @@ function displayInTesting() {
     for (let id = 0; id < inTestingTasks.length; id++) {
         let avatarImage = JSON.parse(inTestingTasks[id].assigned)[0].pic;
         let avatarName = JSON.parse(inTestingTasks[id].assigned)[0].name;
-        let listInTestingTasks = `<div class="todoTasks allTasks ${inTestingTasks[id].urgency}" id="todoTasks" draggable="true" ondragstart="drag(event)">
+        let listInTestingTasks = `<div class="todoTasks allTasks ${inTestingTasks[id].urgency}" id="todoTasks${id}" draggable="true" ondragstart="drag(event)">
         <div class="deleteTask" id="deleteTask"><img onclick="deleteInTestingTask(${id})" src="img/x-mark-3-16.png"></div>
         <div class="pushTask" id="pushTask"><img onclick="pushTaskToDone(${id})" src="img/arrow-61-16.png"></div>
         <div class="tooltip">
@@ -420,6 +420,17 @@ function displayDone() {
 
         let listDoneTasks = generateTask(doneTasks[id]);
         document.getElementById('doneColumn').insertAdjacentHTML('beforeend', listDoneTasks);
+    }
+}
+
+function moveToTesting(event) {
+    event.preventDefault();
+    console.log(event);
+}
+
+function moveTask(column, id) {
+    if (column == 'progress') {
+        pushTaskToProgress(id);
     }
 }
 
