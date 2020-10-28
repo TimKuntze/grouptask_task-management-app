@@ -2,7 +2,6 @@ let allTasks = [];
 
 function displayBacklog() {
     loadTasksFromLocalStorage();
-    transformToJSON();
     document.getElementById('assign-container').innerHTML = "";
     for (let id = 0; id < allTasks.length; id++) {
         let task = allTasks[id];
@@ -25,11 +24,6 @@ function displayBacklog() {
         console.log(allTasks[id]);
 
     }
-}
-
-function transformToJSON() {
-    let allTasksAsString = localStorage.getItem('allTasks');
-    allTasks = JSON.parse(allTasksAsString);
 }
 
 function loadTasksFromLocalStorage() {
