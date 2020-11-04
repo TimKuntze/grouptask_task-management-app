@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="styleDashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <script src="script.js"></script>
-    <script src="templates/task.done.template.js"></script>
+    <script src="templates/task.template.js"></script>
+
 
 </head>
 
-<body onload="displayTasks(), displayInProgress(), displayInTesting(), displayDone(), updateUserPic()">
+<body onload="load(), displayInProgress(), displayInTesting(), displayDone(), updateUserPic()">
 
     <section class="navBarContainer" id="navBarContainer">
         <nav class="navBarMobile" id="navBarMobile">
@@ -69,6 +70,7 @@
 
         <head>
             <h1 class="dashboardHead" id="dashboardHead">Dashboard</h1>
+
         </head>
 
         <div class="dashboardContainer" id="dashboardContainer ">
@@ -91,7 +93,7 @@
                         <a onclick="toDoSortingUser()">User</a>
                     </div>
                 </div>
-                <div class="todoColumn" id="todoColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="column" id="todoColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                 </div>
             </div>
@@ -112,7 +114,7 @@
                         <a onclick="inProgressSortingUser()">User</a>
                     </div>
                 </div>
-                <div class="inprogressColumn" id="inprogressColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="column" id="inprogressColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                 </div>
             </div>
@@ -134,7 +136,7 @@
                     </div>
                 </div>
 
-                <div class="intestingColumn" id="intestingColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="column" id="intestingColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                 </div>
             </div>
@@ -155,7 +157,7 @@
                     </div>
                 </div>
 
-                <div class="doneColumn" id="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="column" id="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 
 
                 </div>
