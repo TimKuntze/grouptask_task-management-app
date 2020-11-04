@@ -55,6 +55,7 @@ let dateValue;
 let urgencyValue;
 let assignedUsersAsString;
 
+
 /**
  * Pre-sets the input 'Due Date' to the current date.
  * @function
@@ -79,15 +80,21 @@ function createTaskJSON() {
 
     gatherTasksData();
 
+
+
     assignJSONToVariable();
 
-    id++
+    save();
 
-    /*transform JSON data to a string for local storage*/
-    addToLocalStorage();
+
+
+
+
+    /*transform JSON data to a string for local storage
+    addToLocalStorage();*/
 
     /* Only for information */
-    console.log(alltasks)
+    console.log(alltasks);
 
 }
 
@@ -116,6 +123,7 @@ function assignJSONToVariable() {
     } else {
         createATask();
         alltasks.push(task);
+
         resetPage();
         var alertID = 'taskCreatedAlert';
         alertController(alertID);
@@ -143,7 +151,7 @@ function createATask() {
         "description": `${descriptionValue}`,
         "date": `${dateValue}`,
         "urgency": `${urgencyValue}`,
-        "status": `to do`,
+        "status": `toDo`,
         "assigned": `${assignedUsersAsString}`,
         "id": `${id}`
     };
@@ -280,7 +288,7 @@ function selectUser(userName) {
     }
 }
 
-//*JAVASCRIPT FOR DASHBOARD STARTS HERE - STILL IN PROGRESS
+//*JAVASCRIPT FOR DASHBOARD STARTS HERE
 
 /**
  * This array stores all the tasks pushed into the inProgress category.
@@ -301,20 +309,21 @@ let inTestingTasks = [];
 let doneTasks = [];
 
 /**
+ * This variable has the info in which column a task is
+ */
+let column;
+
+/**
  * //*Displaying of ToDo Tasks.
  * @function
  */
 function displayTasks() {
 
-    //*Get ToDo item from local storage.
-    let alltasksAsString = localStorage.getItem('alltasks');
-    alltasks = JSON.parse(alltasksAsString);
-    if (alltasks == null) {
-        alltasks = [];
-    }
-
     //*Clearing ToDo Column.
     document.getElementById('todoColumn').innerHTML = "";
+
+    //*Assign name of status to JSON 
+    //alltasks['status'] = 'toDo';
 
     //*Displaying of ToDo Tasks.
     for (let id = 0; id < alltasks.length; id++) {
@@ -351,6 +360,8 @@ function displayInProgress() {
 
     //*Clearing InProgress Column.
     document.getElementById('inprogressColumn').innerHTML = "";
+
+    inProgressTasks = inProgressTasks.filter(function(x) { return x !== null });
 
     //*Displaying of InProgress Tasks.
     for (let id = 0; id < inProgressTasks.length; id++) {
@@ -414,6 +425,7 @@ function displayInTesting() {
  */
 function displayDone() {
 
+
     //*Get Done item from local storage.
     let doneAsString = localStorage.getItem('doneTasks');
     doneTasks = JSON.parse(doneAsString);
@@ -421,25 +433,27 @@ function displayDone() {
         doneTasks = [];
     }
 
+    doneTasks = doneTasks.filter(function(x) { return x !== null });
+
     //*Clearing Done Column.
     document.getElementById('doneColumn').innerHTML = "";
 
     //*Displaying of Done Tasks.
     for (let id = 0; id < doneTasks.length; id++) {
-
-        let listDoneTasks = generateTask(doneTasks[id]);
+        let avatarImageDone = JSON.parse(doneTasks[id].assigned)[0].pic;
+        let avatarNameDone = JSON.parse(doneTasks[id].assigned)[0].name;
+        let listDoneTasks = `<div class="todoTasks allTasks done" id="todoTasks" draggable="true" ondragstart="drag(event)">
+        <div class="deleteTask" id="deleteTask"><img onclick="deleteDoneTask()" src="img/x-mark-3-16.png"></div>
+        <div class="tooltip">
+        <div class="avatar" id="avatar"><img src="${avatarImageDone}"></div>
+        <span class="tooltiptext-name">${avatarNameDone}</span>
+        </div>
+        <div class="taskDate" id="taskDate">${doneTasks[id].date}</div>
+        <div class="taskTitle" id="taskTitle">${doneTasks[id].title}</div>
+        <div class="taskDescription" id="taskDescription"><span>${doneTasks[id].description}</span></div>
+        <div class="taskCategory" id="taskCategory">${doneTasks[id].category}</div>
+        </div>`;
         document.getElementById('doneColumn').insertAdjacentHTML('beforeend', listDoneTasks);
-    }
-}
-
-function moveToTesting(event) {
-    event.preventDefault();
-    console.log(event);
-}
-
-function moveTask(column, id) {
-    if (column == 'progress') {
-        pushTaskToProgress(id);
     }
 }
 
@@ -449,16 +463,9 @@ function moveTask(column, id) {
  */
 function deleteToDoTask(id) {
 
-    //*Get ToDo item from local storage.
-    let alltasksAsString = localStorage.getItem('alltasks');
-    alltasks = JSON.parse(alltasksAsString);
-    if (alltasks == null) {
-        alltasks = [];
-    }
-
     //*Delete item from according array. 
     alltasks.splice(id, 1);
-    addToLocalStorage();
+    save();
     displayTasks();
 }
 
@@ -502,7 +509,7 @@ function deleteInTestingTask(id) {
     //*Delete item from according array. 
     inTestingTasks.splice(id, 1);
 
-    //*Pushing InProgress array into local storage
+    //*Pushing InTesting array into local storage
     inTestingAsString = JSON.stringify(inTestingTasks);
     localStorage.setItem('inTestingTasks', inTestingAsString);
 
@@ -543,15 +550,10 @@ function deleteDoneTask(id) {
  */
 function pushTaskToProgress(id) {
 
-    //*Get ToDo item from local storage.
-    let alltasksAsString = localStorage.getItem('alltasks');
-    alltasks = JSON.parse(alltasksAsString);
-    if (alltasks == null) {
-        alltasks = [];
-    }
-
     //*Pushing selected task into InProgress array
     inProgressTasks.push(alltasks[id]);
+
+
 
     //*Pushing InProgress array into local storage
     let inProgressAsString = JSON.stringify(inProgressTasks);
@@ -559,7 +561,9 @@ function pushTaskToProgress(id) {
 
     //*Deleting of selected item from ToDo array and update
     alltasks.splice(id, 1);
-    addToLocalStorage();
+
+    save();
+
     displayTasks();
     displayInProgress();
 }
@@ -1086,4 +1090,109 @@ window.onclick = function(event) {
 
 function removeNavList() {
     document.getElementById('navListMobile').classList.add('dHide');
+}
+
+//*JAVASCRIPT FOR JSON/SERVER EXCHANGE
+
+
+const BASE_SERVER_URL = 'http://tim-kuntze.developerakademie.com/json_to_server/'; // Place of the backend
+
+let myJSON = alltasks;
+
+/**
+ * Saves myJSON to server
+ */
+function save() {
+    saveJSONToServer(myJSON)
+        .then(function() {})
+        .catch(function(error) {
+            alert('Fehler beim Speichern');
+            console.error('error', error);
+        });
+
+}
+
+
+/**
+ * Loads myJSON from Server
+ */
+function load() {
+
+    loadJSONFromServer()
+        .then(function(result) {
+            alltasks = JSON.parse(result);
+            displayTasks();
+        })
+        .catch(function(error) {
+            alert('Fehler beim Laden!');
+            console.error('error', error);
+        });
+}
+
+/**
+ * Saves a JSON or JSON Array to the Server
+ * payload {JSON | Array} - The payload you want to store
+ */
+function saveJSONToServer(payload) {
+    return new Promise(function(resolve, reject) {
+        let xhttp = new XMLHttpRequest();
+        let proxy = determineProxySettings();
+        let serverURL = proxy + BASE_SERVER_URL + 'save_json.php';
+        xhttp.open('POST', serverURL);
+
+        xhttp.onreadystatechange = function(oEvent) {
+            if (xhttp.readyState === 4) {
+                if (xhttp.status >= 200 && xhttp.status <= 399) {
+                    resolve(xhttp.responseText);
+                } else {
+                    reject(xhttp.statusText);
+                }
+            }
+        };
+
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhttp.send(JSON.stringify(payload));
+
+    });
+}
+
+
+
+/**
+ * Loads a JSON or JSON Array to the Server
+ * payload {JSON | Array} - The payload you want to store
+ */
+function loadJSONFromServer() {
+    return new Promise(function(resolve, reject) {
+        let xhttp = new XMLHttpRequest();
+        let proxy = determineProxySettings();
+        let serverURL = proxy + BASE_SERVER_URL + 'my_json.json';
+        xhttp.open('GET', serverURL);
+
+        xhttp.onreadystatechange = function(oEvent) {
+            if (xhttp.readyState === 4) {
+                if (xhttp.status >= 200 && xhttp.status <= 399) {
+                    resolve(xhttp.responseText);
+                } else {
+                    reject(xhttp.statusText);
+                }
+            }
+        };
+
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhttp.send();
+
+    });
+}
+
+function updateStatus(status) {
+    result.innerHTML = status;
+}
+
+function determineProxySettings() {
+    if (window.location.href.indexOf('.developerakademie.com') > -1) {
+        return '';
+    } else {
+        return 'https://cors-anywhere.herokuapp.com/';
+    }
 }
